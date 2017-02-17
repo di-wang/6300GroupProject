@@ -42,7 +42,7 @@ Missing database class, more association arrows, missing phone number in addPlay
 ## Team Design
 This section contains the team UML design
 
-
+We decided that Andrew (jjung327) had the most complete UML that required minor changes compared to the other diagrams so we used this as the base line for our team UML.
 
 ### Design commonalities
 Numbered by the design
