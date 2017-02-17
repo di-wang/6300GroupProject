@@ -69,6 +69,10 @@ This contains a high level comparison and difference look at the individual desi
 ### Main design decisions
 As a team it was decided that **Design 4** *(jjung327)* had the most complete UML that required minor changes compared to the other design diagrams. The team decided to use this as the base line for our team collaboration UML. The team liked the detail in general and felt that with a couple clarifications on the UML design, a couple corrections of variables and additions of utility classes the UML design would meet what was expected as a collective group.
 
+One major changes made from the base design was instead of showing foreign key relationships between 'Match' and 'Player', and between 'Tournament' and 'Player' as association lines between the classes, attributes 'player1' and 'player2' are added to 'Match' class, and attributes 'winningPlayer', 'secondPlayer', and 'thirdPlayer' are added to 'Tournament' class. Originally, association lines were used to represent that these attributes are not typical String attributes, but foreign keys. However, it was decided that having all the association lines could cause confusion and clutter the diagram.
+
+Additionally, some operations from 'Manager' class acting on 'Tournament' class or 'Match' class required different multipliers. For example, 'viewPastProfits' is aggregation operation while 'showTournamentInfo' acts on a single 'Tournament' instance. Therefore, separate lines were used to differentiate these different types of operations.
+
 ## Summary
 As a group we started our meeting by discussing our individual design information about each of our UMLs and the process that went into developing the diagram we submitted for the previous assignment. Then the team went back and talked about what the pro's and con's of each of the designs. Additionally, the team helped with points and fields that we missed individually. We discussed that we should continue, for now, with one video call a week and agreed on this following meeting time. Lastely, we agreed to keep in touch over google hangouts with what the next steps as a team should be taken.
 
