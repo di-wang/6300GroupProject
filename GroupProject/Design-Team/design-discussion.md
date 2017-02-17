@@ -48,7 +48,7 @@ This section contains the team UML design
 Numbered by the design
 
 1. Design1 was similar in thought and contained the basics to meet the requirements as design. It was similar with the thought of the deck class and the currentmode class. The main difference is the detail and the use of utility classes in the team design.
-2. Design2 held the similarity with the utility classes and it was the insipration for the team design. The main difference is the lack of the current mode class and deck options.
+2. Design2 held the similarity with the utility classes and it was the insipration for the team design. The main difference is the lack of the current mode class.
 3. Design3 had a similar thought of how information was passed between the classes. The main difference were the lack of classes to cover extended features.
 4. Design4 was the basis for the group UML. As this is the case a few corrections and additions were done. One of the main addtions was the utility classes to help represent the tourney calc algorithm and the database.
 
