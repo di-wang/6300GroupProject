@@ -59,12 +59,12 @@ This section contains the team UML design that was discussed by the group member
 ![team design](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Design-Team/design-team.png)
 
 ### Design commonalities and differences
-This contains a high level comparison and difference look at the individual designs as matched with the team design
+This contains a high-level comparison and difference look at the individual designs as matched with the team design
 
 1. **Design 1** was similar in thought and contained the basics to meet the requirements as design. A major commonality was the choice to have the deck class and the currentmode class. The main difference is the detail and the use of utility classes in the team design.
-2. **Design 2** held the similarity with the use of utility classes and it was the insipration for the input of them into the team design. The main difference is the lack of the current mode class to have a switch between manager and player.
-3. **Design 3** had a similar thought of how information was passed between the classes at the tournament, match and player level. The main difference were the lack of classes to cover extended features that gave the team design a more robust feeling.
-4. **Design 4** was the basis for the group UML so the majority of the design is common. As this is the case, a few corrections and additions were done based on the discussion of the team. One of the main addtions was the utility classes to help represent the tourney calc algorithm and the database.
+2. **Design 2** held the similarity with the use of utility classes and it was the inspiration for the input of them into the team design. The main difference is the lack of the current mode class to have a switch between manager and player.
+3. **Design 3** had a similar thought of how information was passed between the classes at the tournament, match and player level. The main difference was the lack of classes to cover extended features that gave the team design a more robust feeling.
+4. **Design 4** was the basis for the group UML so the majority of the design is common. As this is the case, a few corrections and additions were done based on the discussion of the team. One of the main additions was the utility classes to help represent the tourney calc algorithm and the database.
 
 ### Main design decisions
 As a team it was decided that **Design 4** *(jjung327)* had the most complete UML that required minor changes compared to the other design diagrams. The team decided to use this as the base line for our team collaboration UML. The team liked the detail in general and felt that with a couple clarifications on the UML design, a couple corrections of variables and additions of utility classes the UML design would meet what was expected as a collective group.
@@ -74,7 +74,4 @@ One major changes made from the base design was instead of showing foreign key r
 Additionally, some operations from 'Manager' class acting on 'Tournament' class or 'Match' class required different multipliers. For example, 'viewPastProfits' is aggregation operation while 'showTournamentInfo' acts on a single 'Tournament' instance. Therefore, separate lines were used to differentiate these different types of operations.
 
 ## Summary
-As a group we started our meeting by discussing our individual design information about each of our UMLs and the process that went into developing the diagram we submitted for the previous assignment. Then the team went back and talked about what the pro's and con's of each of the designs. Additionally, the team helped with points and fields that we missed individually. We discussed that we should continue, for now, with one video call a week and agreed on this following meeting time. Lastely, we agreed to keep in touch over google hangouts with what the next steps as a team should be taken.
-
-
-## DELETE BEFORE SUBMITTING
+As a group, we started our meeting by discussing our individual design information about each of our UMLs and the process that went into developing the diagram we submitted for the previous assignment. Then the team went back and talked about what the pros and cons of each of the designs. Additionally, the team helped with points and fields that we missed individually. We discussed that we should continue, for now, with one video call a week and agreed on this following meeting time. Lastly, we agreed to keep in touch over google hangouts with what the next steps as a team should be taken.
