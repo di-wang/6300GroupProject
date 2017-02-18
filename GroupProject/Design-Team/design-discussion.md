@@ -55,11 +55,10 @@ Image of jjung327's design
 
 ## Team Design
 This section contains the team UML design that was discussed by the group members.
-
 ![team design](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Design-Team/design-team.png)
 
 ### Design commonalities and differences
-This contains a high-level comparison and difference look at the individual designs as matched with the team design
+This contains a high-level comparison and difference look at the individual designs as matched with the team design.
 
 1. **Design 1** was similar in thought and contained the basics to meet the requirements as design. A major commonality was the choice to have the deck class and the currentmode class. The main difference is the detail and the use of utility classes in the team design.
 2. **Design 2** held the similarity with the use of utility classes and it was the inspiration for the input of them into the team design. The main difference is the lack of the current mode class to have a switch between manager and player.

@@ -6,7 +6,7 @@
 **2/21/2017 at 6 PM EST** (Please update if wrong)
 
 ### Meeting 1 (2/16/2017)
-Introduced ourselves and experience. Discussed individual and team design for group project delivery. Jjung327 edited his individual design to make the team design. Acain33 developed and compiled markdown. Dwang383 and Eredmond6 gave inputs and made edits to help with the design and document. Acain33 project manager for first submit, but will rotate members to help fit personal scheduals.
+Introduced ourselves and experience. Discussed individual and team design for group project delivery. Jjung327 edited his individual design to make the team design. Acain33 developed and compiled markdown. Dwang383 and Eredmond6 gave inputs and made edits to help with the design and document. Acain33 project manager for first submit, but will rotate members to help fit personal schedules.
 
 ### Meeting 2 (2/21/2017)
 Not occurred yet.
