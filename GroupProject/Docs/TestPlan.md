@@ -1,8 +1,8 @@
 # Test Plan
 
-*This is the template for your test plan. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
+**Author**: acain33
 
-**Author**: \<person or team name\>
+**Editors**: dwang383, eredmond6, jjung327
 
 ## 1 Testing Strategy
 
@@ -16,14 +16,17 @@
 
 ### 1.3 Adequacy Criterion
 
-*Define how you are going to assess the quality of your test cases. Typically, this involves some form of functional or structural coverage. If you plan to use different techniques at different testing levels (e.g., unit and system), you should clarify that.*
+The test cases will be assessed on how well they verify the requirements of the system. The test cases will be built in order to cover the original requirements by the customer and additional requirements stated in [Extra Requirements](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/ExtraRequirements.md). All the use cases for the application design are captured in the [Use Case Model](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/UseCaseModel.md) document.
 
 ### 1.4 Bug Tracking
 
-*Describe how bugs and enhancement requests will be tracked.*
+Bug tracking will be handled using a form method. We would like to capture the user information that encountered the bug, the screen the bug occured on and a short description of the bug itself. This gives a starting point to reproduce the bug by the developers and a reach back to help them understand more if they can not produce the bug.
+
+Enhancements will also be handled by a form method. The user would submit their information, the suggested enhancement and the reason they think this feature should be added. These will all be aggrogated together by a quality control analyst and sorted by number of instances to determine the enhancement priority.
 
 ### 1.5 Technology
 
+The majority of the testing method will be via JUnit. 
 *Describe any testing technology you intend to use or build (e.g., JUnit, Selenium).*
 
 ## 2 Test Cases
