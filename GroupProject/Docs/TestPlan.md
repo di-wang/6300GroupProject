@@ -32,3 +32,15 @@ The majority of the testing method will be via JUnit.
 ## 2 Test Cases
 
 *This section should be the core of this document. You should provide a table of test cases, one per row. For each test case, the table should provide its purpose, the steps necessary to perform the test, the expected result, the actual result (to be filled later), pass/fail information (to be filled later), and any additional information you think is relevant.*
+
+Guide for tests later
+Manager -> add test players **check add feature**
+Manager -> enter values/players -> verify illegal values dont allow start **check illegal inputs**
+Manager -> enter values/players -> start tourney -> run bracket -> view results **check working with no deck choice for player**
+Players -> add decks/account options **Players can chose decks and other info they need to edit**
+Manager -> enter values/players -> start tourney -> run bracket -> view results **Run tourney with all correct information**
+Manager -> view player information and winnings **Manager view of player information**
+Player -> view own information and winnings **Player view of player information (only own)**
+Manager -> remove player (no place/2nd place) -> view winnings **remove players and see if affects information**
+
+
