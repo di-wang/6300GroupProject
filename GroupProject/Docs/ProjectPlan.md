@@ -1,6 +1,6 @@
 # Project Plan
 
-Author: Ed Redmond <\Team75\>
+Author: Ed Redmond - Team 75
 
 ## 1 Introduction
 
