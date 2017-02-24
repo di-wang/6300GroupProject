@@ -1,9 +1,8 @@
-
 # Use Case Model
 
-*This is the template for your use case model. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
+**Author**: Di Wang (dwang383)
 
-**Author**: Di Wang (Team75)  GT username: dwang383
+**Team:** Adric Cain (acain33), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
 ## 1 Use Case Diagram
 
@@ -20,22 +19,22 @@
 * Scenarios: Start the application. The manager select his/her user type as Manager and input the login credentials. The manager mode will be switched on and display a list of functions. 
 
 #### Add Player
-* Requirements: The tournament manager uses the system to add players.  
+* Requirements: The tournament manager uses the system to add players.
 * Pre-conditions: The manager mode is selected. The player username is not duplicating any one already existing in the system.
 * Post-conditions: A new player is added into the system. 
 * Scenarios: The tournament manager input the all required information of a player (Name, username, phone number, deck choice), and click add a player. The system will verify if all information is complete and there is not a duplicate existing in the system. If any error, the system will display the error to the manager. Otherwise, the system will add the player into tournament.
 
 #### Remove Player
-* Requirements: The tournament manager uses the system to remove players.   
+* Requirements: The tournament manager uses the system to remove players.
 * Pre-conditions: The manager mode is selected. There is at least one player and the input player username exists in the system. 
 * Post-conditions: The player is removed from the system. 
 * Scenarios: The manager input the username of the player to be removed from the system. The system will look up the username. If the username is found, the system will delete the found player from the system. If there is not player with that username found, the system will display an error and ask to try a different username.
 
 #### Run Tournament
-* Requirements: The tournament manager can start the tournament.  
+* Requirements: The tournament manager can start the tournament.
 * Pre-conditions: House cut/Entry price/All player names have to be inputted. There are either 8 or 16 players. There is no ongoing tournament.
 * Post-conditions: Tournament is ongoing.
-* Scenarios: After tournament manager has inputted all required information and double checked the information. The tournament will start, the manager and player mode will show a match list. 
+* Scenarios: After the tournament manager has inputted all required information and double checked the information. The tournament will start, the manager and player mode will show a match list. 
 
 #### Input Tournament Information
 * Requirements: The tournament manager will enter the house cut. The tournament manager will enter the entry price. The tournament manager will enter all player usernames. When the tournament manager has entered the above information, the system will display, in addition to the player names, the potential prizes and profit.
@@ -53,10 +52,10 @@
 * Requirements:  The tournament manager will be able to end an ongoing match and specify a result for it.
 * Pre-conditions: The tournament is ongoing and there is at least one match marked as started.
 * Post-conditions: The match is marked as finished and the winner advances to the next round.
-* Scenarios: A tournament is ongoing, the manager selects a started match from the match list and marks its state as finished. The manager then input winner's username in the following match as found in the match list.  
+* Scenarios: A tournament is ongoing; the manager selects a started match from the match list and marks its state as finished. The manager then input winner's username in the following match as found in the match list.
 
 #### View Matchlist
-* Requirements: When tournament is ongoing, the tournament manager mode will show a match list.  
+* Requirements: When tournament is ongoing, the tournament manager mode will show a match list.
 * Pre-conditions： The tournament is ongoing. 
 * Post-conditions: A list of all matches is displayed. The manager can start/end a match ready to be played by selecting it from the list. 
 * Scenarios: When there is an ongoing tournament, the manager mode displays a list of matches.
@@ -68,7 +67,7 @@
 * Scenarios: When there is no ongoing tournament, the tournament manager has an option to view totals for every player in the system as a list sorted by total. If clicking on a specific player, the system will display the player's individual prizes.
 
 #### Display Profits
-* Requirements: When there is no ongoing tournament, the tournament manager can view the list of past house profits in chronological order and the total.  
+* Requirements: When there is no ongoing tournament, the tournament manager can view the list of past house profits in chronological order and the total.
 * Pre-conditions: There is no ongoing tournament. All tournament states are marked as completed.
 * Post-conditions: Display the list of past house profits in chronological order and the total.
 * Scenarios: 
@@ -81,13 +80,19 @@
 * Scenarios: Start the application. The manager select his/her user type as Manager and input the login credentials. The manager mode will be switched on and display a list of functions. 
 
 #### View Matchlist
-* Requirements: When tournament is ongoing, the player mode will show a match list.  
+* Requirements: When tournament is ongoing, the player mode will show a match list.
 * Pre-conditions： The tournament is ongoing. 
-* Post-conditions: A list of all matches is displayed.  
+* Post-conditions: A list of all matches is displayed.
 * Scenarios: When there is an ongoing tournament, the player mode displays a list of matches.
 
 #### Display Prize
 * Requirements: When there is no ongoing tournament, the player can view totals for every player in the system as a list sorted by total. 
 * Pre-conditions: There is no ongoing tournament. All tournament states are marked as completed.
 * Post-conditions: Display totals for every player in the system, sorted by total. 
-* Scenarios: When there is no ongoing tournament, the player mode will display totals for every player in the system as a list sorted by total. 
+* Scenarios: When there is no ongoing tournament, the player mode will display totals for every player in the system as a list sorted by total.
+
+#### Change Deck
+* Requirements: When there is no ongoing tournament, the player can change their deck in the system.
+* Pre-conditions: There is no ongoing tournament. Player is in the system.
+* Post-conditions: Display deck the player will use in the tournament.
+* Scenarios: When there is no ongoing tournament, the player mode will allow the player to change decks.

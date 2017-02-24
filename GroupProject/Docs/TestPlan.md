@@ -1,19 +1,28 @@
 # Test Plan
 
-**Author**: acain33
+**Author:** Adric Cain (acain33)
 
-**Editors**: dwang383, eredmond6, jjung327
+**Team:** Di Wang (dwang383), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
 ## 1 Testing Strategy
 
+This document contains the testing strategy for Team 75 Spring 2017 CS6300.
+
 ### 1.1 Overall strategy
 
-The overall testing strategy 
-*This section should provide details about your unit-, integration-, system-, and regression-testing strategies. In particular, it should discuss which activities you will perform as part of your testing process, and who will perform such activities.*
+The overall testing strategy will be using mixing functional and UI testing on the Android application. The tests will be broken down into the following list:
+
+1. Unit testing will be completed by the software developer and test whether the unit they are building is working with nominal values before being pushed into the code repository.
+
+2. Integration testing will occur by the developer and tester of the android application. When multiple units are submitted to the overall project a developer will pull and validate that their unit does not cause errors. In addition, the tester will pull the full repository and run the test cases to make sure that no bugs occur in the process.
+
+3. System testing will be completed once the whole system is built by the developers. It will encompass all the unit and integration that has been completed. The final test for the release of the system will be when all the tests have passed satisfactory.
+
+4. Regression testing will occur when any bug occurs or a change request is made to the system. The developer will update the code and the tester will verify that all values from the previous system test hold true or that the bug in the code is fixed and the correct information is being displayed in the system.
 
 ### 1.2 Test Selection
 
-The testing method that will be preferred is black box unit testing. The test method will cover the major points of the requirements and check the actions against what is the expected behavior. 
+The testing method that will be preferred is black box unit testing. The test method will cover the major points of the requirements and check the actions against what is the expected behavior.
 
 ### 1.3 Adequacy Criterion
 
@@ -21,9 +30,9 @@ The test cases will be assessed on how well they verify the requirements of the 
 
 ### 1.4 Bug Tracking
 
-Bug tracking will be handled using a form method. We would like to capture the user information that encountered the bug, the screen the bug occured on and a short description of the bug itself. This gives a starting point to reproduce the bug by the developers and a reach back to help them understand more if they can not produce the bug.
+Bug tracking will be handled using a form method. We would like to capture the user information that encountered the bug, the screen the bug occurred on and a short description of the bug itself. This gives a starting point to reproduce the bug by the developers and a reach back to help them understand more if they cannot produce the bug.
 
-Enhancements will also be handled by a form method. The user would submit their information, the suggested enhancement and the reason they think this feature should be added. These will all be aggrogated together by a quality control analyst and sorted by number of instances to determine the enhancement priority.
+Enhancements will also be handled by a form method. The user would submit their information, the suggested enhancement and the reason they think this feature should be added. These will all be aggregated together by a quality control analyst and sorted by number of instances to determine the enhancement priority.
 
 ### 1.5 Technology
 
@@ -31,7 +40,7 @@ The majority of the testing method will be via JUnit. We will also use the Intel
 
 ## 2 Test Cases
 
-All test cases will assume basic knowledge by the tester. The assumption of each test case is the tester has the application opened on a nexus 5 device as a starting point.
+All test cases will assume basic knowledge by the tester. The assumption of each test case is the tester has the application opened on a nexus 5 devices as a starting point.
 
 **Test 1:** Adding Players
 
@@ -169,3 +178,5 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 7 | Return to Management screen | Opens Management Screen | | |
 8 | Click All Players Total Prize | View a list of all players that have win prizes | | |
 9 | Verify values | Verify deleting did not affect results of other players | | |
+
+#SPELL CHECK BEFORE FINAL PUSH
