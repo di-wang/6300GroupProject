@@ -178,5 +178,3 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 7 | Return to Management screen | Opens Management Screen | | |
 8 | Click All Players Total Prize | View a list of all players that have win prizes | | |
 9 | Verify values | Verify deleting did not affect results of other players | | |
-
-#SPELL CHECK BEFORE FINAL PUSH

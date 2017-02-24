@@ -1,6 +1,7 @@
 # Design Document
 
 **Author**: Jongho Jung (jjung327)
+
 **Team**: Adric Cain (acain33), Di Wang (dwang383), Ed Redmond (eredmond6)
 
 ## 1 Design Considerations
@@ -13,7 +14,7 @@ This app does not have a back-end server, so it is assumed that this app is only
 
 ### 1.2 Constraints
 
-The Tourney App has two modes, tournament manager and tournament player, so the app needs to have different behaviors and user interfaces for each mode. To achieve this with the minimal amount of effort, the app should be designed as modular as possible so that overlapping components for both modes can be reused.
+The Tourney App has two modes: tournament manager and tournament player. This means the app needs to have different behaviors and user interfaces for each mode. To achieve this with the minimal amount of effort, the app should be designed as modular as possible so that overlapping components for both modes can be reused.
 
 This project is assumed to be under small budget and considering there is no dedicated designer in our team, there won't be much emphasis on visual design. The app should have a simple interface that is still user-friendly and responsive with the least amount of effort.
 
@@ -25,6 +26,8 @@ The app would be used on many different types of mobile devices with various scr
 
 ## 2 Architectural Design
 
+The following sections describe the architectural diagrams for the application.
+
 ### 2.1 Component Diagram
 
 ![componentdiagram](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/component-diagram.png)
@@ -34,6 +37,8 @@ The app would be used on many different types of mobile devices with various scr
 For this app, there is no external back-end server. Therefore, all the components will be deployed on Android mobile devices and all the components of the app will be used locally on the phone. Due to the fact that all the components will be deployed to the same device, deployment diagram won't be necessary.
 
 ## 3 Low-Level Design
+
+The following sections describe the low-level diagrams for the application.
 
 ### 3.1 Class Diagram
 
@@ -45,14 +50,28 @@ This app is a fairly simple application. Therefore, no other diagrams are needed
 
 ## 4 User Interface Design
 
-![home](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-home.png)
+The following images show the initial user interface design for the application.
 
-![mode](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/mode-seleciton.png)
+* Home Screen
 
-![playerlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerlist.png)
+![home](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-home.png?style=centerme)
 
-![playerindividual](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerindividual.png)
+* Mode Switch Screen
 
-![tournamentinfo](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentinfo.png)
+![mode](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/mode-seleciton.png?style=centerme)
 
-![tournamentlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentlist.png)
+* List of Players and Prizes Screen
+
+![playerlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerlist.png?style=centerme)
+
+* List of Individual Player Winnings
+
+![playerindividual](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerindividual.png?style=centerme)
+
+* Tournament Information Screen
+
+![tournamentinfo](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentinfo.png?style=centerme)
+
+* List of Tournaments and Status
+
+![tournamentlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentlist.png?style=centerme)
