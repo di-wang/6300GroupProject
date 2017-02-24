@@ -2,8 +2,8 @@
 
 *This is the template for your design document. The parts in italics are concise explanations of what should go in the corresponding sections and should not appear in the final document.*
 
-**Author**: Jongho Jung (jjung327)
-**Team**: Adric Cain (acain33), Di Wang (dwang383), Ed Redmond (eredmond6)
+**Author:** Jongho Jung (jjung327)
+**Team:** Adric Cain (acain33), Di Wang (dwang383), Ed Redmond (eredmond6)
 
 ## 1 Design Considerations
 

@@ -1,8 +1,7 @@
 # Test Plan
 
-**Author**: acain33
-
-**Editors**: dwang383, eredmond6, jjung327
+**Author:** Adric Cain (acain33)
+**Team:** Di Wang (dwang383), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
 ## 1 Testing Strategy
 

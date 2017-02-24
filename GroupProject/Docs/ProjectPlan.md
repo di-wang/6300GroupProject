@@ -1,6 +1,7 @@
 # Project Plan
 
-Author: Ed Redmond - Team 75
+**Author:** Ed Redmond (eredmond6)
+**Team:** Adric Cain (acain33), Di Wang (dwang383), Jongho Jung (jjung327)
 
 ## 1 Introduction
 
