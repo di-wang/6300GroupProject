@@ -1,6 +1,7 @@
 # Use Case Model
 
 **Author**: Di Wang (dwang383)
+
 **Team:** Adric Cain (acain33), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
 ## 1 Use Case Diagram
@@ -33,7 +34,7 @@
 * Requirements: The tournament manager can start the tournament.
 * Pre-conditions: House cut/Entry price/All player names have to be inputted. There are either 8 or 16 players. There is no ongoing tournament.
 * Post-conditions: Tournament is ongoing.
-* Scenarios: After tournament manager has inputted all required information and double checked the information. The tournament will start, the manager and player mode will show a match list. 
+* Scenarios: After the tournament manager has inputted all required information and double checked the information. The tournament will start, the manager and player mode will show a match list. 
 
 #### Input Tournament Information
 * Requirements: The tournament manager will enter the house cut. The tournament manager will enter the entry price. The tournament manager will enter all player usernames. When the tournament manager has entered the above information, the system will display, in addition to the player names, the potential prizes and profit.
@@ -51,7 +52,7 @@
 * Requirements:  The tournament manager will be able to end an ongoing match and specify a result for it.
 * Pre-conditions: The tournament is ongoing and there is at least one match marked as started.
 * Post-conditions: The match is marked as finished and the winner advances to the next round.
-* Scenarios: A tournament is ongoing, the manager selects a started match from the match list and marks its state as finished. The manager then input winner's username in the following match as found in the match list.
+* Scenarios: A tournament is ongoing; the manager selects a started match from the match list and marks its state as finished. The manager then input winner's username in the following match as found in the match list.
 
 #### View Matchlist
 * Requirements: When tournament is ongoing, the tournament manager mode will show a match list.

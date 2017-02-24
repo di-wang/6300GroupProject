@@ -1,6 +1,7 @@
 # Extra Requirements
 
 **Author**: Di Wang (dwang383)
+
 **Team:** Adric Cain (acain33), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
 ##1. Refund Money
@@ -13,7 +14,7 @@ After tournament information is inputted, TourneyCalc algorithm is utilized to c
 After tournament information is inputted, TourneyCalc algorithm is utilized to calculate the house profits for each tournament.
 
 ##4. Underlying database for tournament progress
-The system records and updates tournametn progress in an underlying database.
+The system records and updates tournament progress in an underlying database.
 
 ##5. Underlying database for historical tournament profits
 The system records and updates historical tournament profits in an underlying database.
