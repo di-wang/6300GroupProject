@@ -54,24 +54,24 @@ The following images show the initial user interface design for the application.
 
 * Home Screen
 
-![home](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-home.png?style=centerme)
+![home](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-home.png)
 
 * Mode Switch Screen
 
-![mode](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/mode-seleciton.png?style=centerme)
+![mode](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/mode-seleciton.png)
 
 * List of Players and Prizes Screen
 
-![playerlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerlist.png?style=centerme)
+![playerlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerlist.png)
 
 * List of Individual Player Winnings
 
-![playerindividual](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerindividual.png?style=centerme)
+![playerindividual](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerindividual.png)
 
 * Tournament Information Screen
 
-![tournamentinfo](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentinfo.png?style=centerme)
+![tournamentinfo](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentinfo.png)
 
 * List of Tournaments and Status
 
-![tournamentlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentlist.png?style=centerme)
+![tournamentlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentlist.png)
