@@ -1,6 +1,6 @@
 # Extra Requirements
 
-**Author**: Di Wang (dwang383)
+**Author:** Di Wang (dwang383)
 
 **Team:** Adric Cain (acain33), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
