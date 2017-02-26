@@ -1,8 +1,8 @@
 # Design Document
 
-**Author**: Jongho Jung (jjung327)
+**Author:** Jongho Jung (jjung327)
 
-**Team**: Adric Cain (acain33), Di Wang (dwang383), Ed Redmond (eredmond6)
+**Team:** Adric Cain (acain33), Di Wang (dwang383), Ed Redmond (eredmond6)
 
 ## 1 Design Considerations
 
