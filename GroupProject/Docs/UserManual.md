@@ -17,65 +17,92 @@ This User Manual will be split into three (3) main sections: [Initial Screen](#i
 ## Initial Screen
 When the Tourney Manager application is launced the user will see a screen with the name "Tourney Manager" and contain two (2) log in buttons. One (1) button is for Manager features of the application and one (1) button is for Player features of the application.
 
+
 ## Manager
+The following describes the actions the Manager may take with the Tournament Manager application.
 
+### Initial Manager screen
+The starting screen once a Manager selects **Manager** is the Organizations page. This page list the organizations information and has buttons to interact with other application pages.
 
+### Manager interactions when no tournament is operating
+The manager can view the following information and have the following interactions with the application when no tournament is running.
 
+#### View house information
+* The manager can view the total house winnings.
+* The manager can view the historical house cut winnings by tournament.
 
+#### View player information
+* The manager can view all players in the system.
+* The manager can view individual players individual information and historical winnings.
 
+#### Add/Remove players from the system
+* The manager can add additional players into the system .
+* The manager can remove players from the system.
 
-## Player
+##### Input fields for adding a player
+Field | Input Information
+----- | -----------------
+Name | This is the name of the legal name of the player to be added to the system.
+User Name |  This is the unique user name that will be used to store player information and add them to tournaments.
+Phone Number | This is the users phone number to contact for any information regarding tournaments.
 
+#### Start tournament
+This section will describe the information input to start a tournament.
 
-
-
-
-
-
-## Open the application on either and emulator or a device
-### From an emulator
-1. Open Android Studio.
-2. Load the existing code by importing the TourneyCalc folder.
-3. *In Android Studio* Build the code.
-4. *In Android Studio* Run the code.
-	* If the display to chose device displays select the default values *ARM* and *Nexus 5*.
-5. After a time *usually 5 to 10 minutes maximum* the application should automatically load onto the emulated Nexus 5.
-
-### From a device
-1. This is a place holder for future reference.
-
-## Operating the TourneyCalc application
-The program should be running on the emulator or device at this point in time. If not revisit **Open the application on either and emulator or a device**.
-
-### Display information
-The application is set up to take in **three** pieces of information as listed below. It will also display **four** points of information that it calculates.
-
-#### Input fields
+##### Input fields for starting a tournament
 Field | Input Information
 ----- | -----------------
 Entrance Fee | This is the fee that is charged to enter the Tourney and is required to be an integer greater than 0.
 Entrants |  This is the number of entrants in the Tourney and is required to be and integer greater than 3.
 House Percentage | This is the percent of the prize pool the house will automatically get and is required to be an integer between 0 and 100.
+UserName | This is an array of Players *Usernames* that is either 8 or 16 in total.
 
-#### Button
-There is a single button to use called **Show Me The Prizes** and this will complete the calculation only when all inputs are valid.
-
-#### Display Fields
-Field | Display Information
------ | -------------------
-House Cut | This is the actual house prize pool for running the Tourney.
-1st | This is the amount of the first prize at 50% of the prize pool after the House Cut.
-2nd | This is the amount of the second prize at 30% of the prize pool after the House Cut.
-3rd | This is the amount of the third prize at 20% of the prize pool after the House Cut.
-
-### Running TourneyCalc
-1. To run TourneyCalc and get results enter the following information into the Input Fields. Where **X**, **Y**, and **Z** are Integer values.
+###### Help on input information
+To start a Tournament enter the following information into the Input Fields. Where **X**, **Y**, and **Z** are Integer values and **Name** is a String Array.
 
 	Field | Input
 	----- | -----
 	Entrance Fee | X > 0
 	Entrants |  Y > 3
 	House Percentage | 0 < Z < 100
+	User Names | Name[8] or Name[16] 
 
-2. Press the **Show Me The Prizes** button.
-	* The program will clear out *House Cut*, *1st*, *2nd*, and *3rd* on invalid inputs into the system.
+##### Start Tournament button
+There is a single button called **Start Trournament** That will allow the Tournament to start when all valid information is input as described above.
+
+### Manager interactions when a tournament is operating
+The manager can view the following information and have the following interactions with the application when a tournament is ongoing.
+
+#### Interact with tournament information
+* The manager can view the tournament prize pool values.
+* The manager can end the current tournament due to error on set up.
+	* This will not save the prizes and house cut information.
+* The manager can end the current tournament after all matches are completed.
+	* This will distribute the value of the the *House Cut*, *1st*, *2nd*, and *3rd* prizes to the correct user.
+
+#### Interact with match information
+* The manager can start the match between players
+* The manager can select the winner and end the match between players
+* The manager can view all ongoing matches for the tournament and historical match results in the current tournament.
+
+
+## Player
+The following describes the actions the Player may take with the Tournament Manager application.
+
+### Initial Player screen
+The starting screen once a Player selects **Player** is their personal page. This page list the player information that was input by the Manager and their tournament winnings.
+
+### Player interactions when no tournament is operating
+* The player is able to select the deck they wish to use for future tournaments.
+* The player can view their information on the main Player screen.
+* The player can view their historical tournament winnings; By tournament or by total.
+
+### Player interactions when a tournament is operating
+* The player can click the tournament button to move to the tournament information screen.
+
+#### Tournament page
+* The player can view the tournament prize pool values.
+* The player can click the match button to move to the tournament match information screen.
+
+#### Match page
+* The player can view all ongoing matches for the tournament and historical match results in the current tournament.
