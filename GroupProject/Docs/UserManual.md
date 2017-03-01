@@ -1,11 +1,36 @@
-# User Manual for TourneyCalc App
+# User Manual for Tourney Manager Application
 
 **Author:** Adric Cain (acain33)
 
 **Team:** Di Wang (dwang383), Ed Redmond (eredmond6), Jongho Jung (jjung327)
 
 ## PreRequisite
-The code for Team 75's TourneyCalc application is located at [TourneyCalc] (https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/tree/master/GroupProject/TourneyCalc)
+Application is installed on a device.
+* The code for Team 75's TourneyManager application is located at [TourneyManager] (https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/tree/master/GroupProject/TourneyManager)
+
+## About
+This User Manual will be split into three (3) main sections: [Initial Screen](#initial-screen), [Manager](#manager) and [Player](#player).
+* The Initial Screen will allow the user to select either Manager or Player.
+* The Manager will guide the user to all the Manager features.
+* The Player will guide the user to all the Player features.
+
+## Initial Screen
+When the Tourney Manager application is launced the user will see a screen with the name "Tourney Manager" and contain two (2) log in buttons. One (1) button is for Manager features of the application and one (1) button is for Player features of the application.
+
+## Manager
+
+
+
+
+
+
+## Player
+
+
+
+
+
+
 
 ## Open the application on either and emulator or a device
 ### From an emulator
