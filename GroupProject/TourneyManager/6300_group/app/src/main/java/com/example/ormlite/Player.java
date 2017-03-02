@@ -51,4 +51,24 @@ public class Player {
 				", Deck='" + Deck + '\'' +
 				'}';
 	}
+    public int[] calculatePrizesAndProfit(int totalPool){
+        int firstPrize;
+        int secondPrize;
+        int thirdPrize;
+        int profit;
+
+        //Calculate first prize
+        firstPrize = (int) Math.round((totalPool - houseCut) * .5);
+       //Calculate second prize
+        secondPrize = (int) Math.round((totalPool - houseCut) * .3);
+        //Calculate third prize
+        thirdPrize = (int) Math.round((totalPool - houseCut) * .2);
+        //Calculate profit
+        profit = totalPool - firstPrize - secondPrize - thirdPrize;
+        
+        int[]  a = {firstPrize, secondPrize, thirdPrize, profit};
+        
+        return a;
+
+    }
 }
