@@ -115,6 +115,6 @@ Tournament{id=11, houseCut=9, entryPrice=10, allUsername=team75, status='null', 
 ```
 
 ###Test Environment Capture
-!image[](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Test/testCapture.PNG)
+![image](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Test/testCapture.PNG)
 
 
