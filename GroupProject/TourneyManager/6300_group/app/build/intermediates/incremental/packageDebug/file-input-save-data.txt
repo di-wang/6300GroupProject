@@ -1,0 +1,36 @@
+#Internal package file, do not edit.
+#Wed Mar 01 19:42:12 EST 2017
+2.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar
+5.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_\\AndroidManifest.xml
+5.set=ANDROID_RESOURCE
+3.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_
+6.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\ic_launcher.png
+2.set=JAVA_RESOURCE
+10.set=ANDROID_RESOURCE
+10.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\raw\\ormlite_config.txt
+4.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar
+7.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\menu\\main.xml
+7.set=ANDROID_RESOURCE
+count=11
+0.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar\\com\\j256\\ormlite\\core\\LICENSE.txt
+5.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_
+8.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_\\resources.arsc
+4.set=JAVA_RESOURCE
+6.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_
+1.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar\\com\\j256\\ormlite\\android\\README.txt
+9.set=DEX
+9.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+10.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_
+1.set=JAVA_RESOURCE
+7.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_
+2.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar\\com\\j256\\ormlite\\core\\README.txt
+6.set=ANDROID_RESOURCE
+0.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar
+8.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_
+3.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_main.xml
+3.set=ANDROID_RESOURCE
+1.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar
+9.base=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+4.file=C\:\\Users\\jasonw\\Dropbox\\Debug\\6300_group\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar\\com\\j256\\ormlite\\android\\LICENSE.txt
+8.set=ANDROID_RESOURCE
+0.set=JAVA_RESOURCE
