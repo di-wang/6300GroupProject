@@ -15,7 +15,7 @@ Decided that each of the documents should be mainly authored by 1 person and fin
 Use OrmLite for database access. Acain33 work on document updates/creation. Dwang383 work on manager class functions. Eredmund6 work on player/tournament functions. Jjung327 work on front end with all the android graphical files. Meet again on Wednesday to start initial integration or help parts that need additional work. Andrew is project manager for Delivery 3.
 
 ### Meeting 4 (2/29/2017)
-Not occurred yet.
+Continue code debugging. Use Jjung327 code as base as the ormlite package base is having issues on the VM set up.
 
 ### Meeting 5
 Not occurred yet.
