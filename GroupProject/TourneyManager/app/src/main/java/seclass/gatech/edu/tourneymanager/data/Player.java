@@ -8,14 +8,17 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName="PlayerTable")
 public class Player {
 	
-	@DatabaseField(generatedId= true)
-	int id;
+	@DatabaseField(id = true)
+	private String userName;
 
 	@DatabaseField
 	String name;
 
 	@DatabaseField
 	String Phonenumber;
+	
+	@DatabaseField
+	int totalPrize;
 
 	@DatabaseField
 	String Deck;
@@ -43,11 +46,18 @@ public class Player {
 	}
 	
 	public void showAllPlayersTotalPrizes (){
-	
+	    
+	    //We will get all records in the PlayerTable table and just display the Player
+	    //Name and their total prizes
+        List<Player> playerlist = playerDao.queryForAll();
+        Log.d("player", playerlist.toString());
+
 	}
 	
 	public void showMatchList(){
 	
+	    List<Match> Matchlist = matchDao.queryForAll();
+        Log.d("player", playerlist.toString());
 	}
 
 	@Override
