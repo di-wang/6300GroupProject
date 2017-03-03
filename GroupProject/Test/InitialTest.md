@@ -66,25 +66,6 @@ Logcat view result
 ```
 Tournament{id=11, houseCut=9, entryPrice=10, allUsername=team75, status='null', firstWinner='null', secondWinner='null', thirdWinner='null', endDate=null}]	
 ```	
-### addTournament function of Manager
-
-
-Source code:
-```
-//add player
-        try{
-            addPlayer(00, "newly added player", "180088888", "deck1");
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-	
-```
-Logcat test result
-```
-Player{username='21', name='newly added player', Phonenumber='180088888', Deck='deck1'}]
-```
-
-
 	
 ### Test 3. Manger function addTournament
 
