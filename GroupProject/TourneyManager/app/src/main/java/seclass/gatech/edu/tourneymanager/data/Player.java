@@ -41,6 +41,14 @@ public class Player {
 		Phonenumber = phonenumber;
 		Deck = deck;
 	}
+	
+	public void showAllPlayersTotalPrizes (){
+	
+	}
+	
+	public void showMatchList(){
+	
+	}
 
 	@Override
 	public String toString() {
@@ -51,4 +59,5 @@ public class Player {
 				", Deck='" + Deck + '\'' +
 				'}';
 	}
+
 }
