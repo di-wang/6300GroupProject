@@ -73,6 +73,20 @@ public class Tournament {
         return a;
 
     }
+    
+    pulic void refundMoney(int id){
+        //Set total profit to 0
+        profit = 0;
+        //Set tourney status to Cancelled
+        updateBuilder<Category, Integer> updateBuilder = catDao.updateBuilder();
+        // set the criteria like you would a QueryBuilder
+        updateBuilder.where().eq("id", id);
+        // update the value of your field(s)
+        updateBuilder.updateColumnValue("status" /* column */, "Cancelled" /* value */);
+        updateBuilder.update();
+    
+    
+    }
 
     @Override
     public String toString() {
