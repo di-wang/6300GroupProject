@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.gatech.seclass.tourneymanager">
+    package="seclass.gatech.edu.tourneymanager">
 
     <application
-        android:name=".mode.CurrentMode"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SelectModeActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ManagerHomeActivity" />
-        <activity android:name=".AddPlayerActivity" />
-        <activity android:name=".PlayerListActivity" />
-        <activity android:name=".PlayerProfileActivity" />
-        <activity android:name=".StartTournamentActivity" />
-        <activity android:name=".PlayerHomeActivity"></activity>
     </application>
 
 </manifest>
