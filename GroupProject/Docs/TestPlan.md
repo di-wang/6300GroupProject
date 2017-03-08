@@ -53,8 +53,8 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 3 | Enter Name | Name typed into system | | |
 4 | Enter Username | Username typed into system | | |
 5 | Enter Phone Number | Phone number typed into system | | |
-6 | Click button to save information to system | Player information saved to database | | |
-7 | Click View All Player Prizes | Opens Player information for manager to view | | |
+6 | Click Add Player button to save information to system | Player information saved to database | | |
+7 | Click Player List | Opens Player information for manager to view | | |
 8 | Verify Player exist in system | Player exists in the system to view | | |
 
 **Test 2:** Check illegal inputs
@@ -64,7 +64,7 @@ This tests validates that the application blocks illegal inputs from being used 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | | | 
-2 | Click Enter Tournament | Opens Screen to input tournament information | | |
+2 | Click Tournament | Opens Screen to input tournament information | | |
 3 | Enter Cut | Illegal House cut typed into system | | |
 4 | Enter Price | Illegal Price typed into system | | |
 5 | Enter User Names | Illegal User Names typed into system | | |
@@ -80,7 +80,7 @@ This tests validates that a default/no deck choice will not cause the system to 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | | | 
-2 | Click Enter Tournament | Opens Screen to input tournament information | | |
+2 | Click Tournament | Opens Screen to input tournament information | | |
 3 | Enter Cut | House cut typed into system | | |
 4 | Enter Price | Price typed into system | | |
 5 | Enter User Names | User Names typed into system | | |
@@ -88,7 +88,7 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 7 | Select a match | Match information opens | | |
 8 | Select the first player as a winner | First player wins the match | | |
 9 | Repeat Steps 7 and 8 for all matches | Tournament finishes with the first player in each match winning | | |
-9 | Click view Results | Tournament runs as expected | | |
+10 | Click view Results | Tournament runs as expected | | |
 
 **Test 4:** Players can add decks
 
@@ -99,7 +99,7 @@ This tests validates that players can choose decks to use in a tournament.
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Player | Opens Player Screen | | | 
-2 | Click Deck Options | List of decks is displayed | | |
+2 | Click Deck Options dropdown | List of decks is displayed | | |
 3 | Select deck | Deck is added to players deck options in the database | | |
 
 **Test 5:** Tournament works with all valid information
@@ -111,7 +111,7 @@ This tests validates that the tournament will run with players and their own dec
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | | | 
-2 | Click Enter Tournament | Opens Screen to input tournament information | | |
+2 | Click Tournament | Opens Screen to input tournament information | | |
 3 | Enter Cut | House cut typed into system | | |
 4 | Enter Price | Price typed into system | | |
 5 | Enter User Names | User Names typed into system | | |
@@ -119,7 +119,7 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 7 | Select a match | Match information opens | | |
 8 | Select the first player as a winner | First player wins the match | | |
 9 | Repeat Steps 7 and 8 for all matches | Tournament finishes with the first player in each match winning | | |
-9 | Click view Results | Tournament runs as expected | | |
+10 | Click view Results | Tournament runs as expected | | |
 
 **Test 6:** Players can view match list
 
@@ -130,8 +130,8 @@ This tests validates that players can view the match list.
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Player | Opens Player Screen | | | 
-2 | Click Show Match List | Opens Screen to see current tournament matches | | |
-3 | Click a Match | Player is able to see match information | | |
+2 | Click Ongoing Tournament | Opens Screen to see current tournament matches | | |
+3 | Click Match | Player is able to see match information | | |
 
 **Test 7:** Manager view winnings
 
@@ -142,13 +142,11 @@ This tests validates that a manager can view house and player winnings.
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | | | 
-2 | Click View Past Profits | Opens Screen to view all house cuts from previous tournaments | | |
+2 | View House Profits | View all house cuts from previous tournaments | | |
 3 | Return to Management screen | Opens Management Screen | | |
-4 | Click All Players Total Prize | View a list of all players that have win prizes | | |
-5 | Return to Management screen | Opens Management Screen | | |
-6 | Click View Player Prizes | Opens an input to put a player name | | |
-7 | Enter Player name | Player name typed into system | | |
-8 | Click Show | Displays player prizes for input players name | | |
+4 | Click Player List | View a list of all players that have win prizes | | |
+5 | Click Player name | Opens Player Profile Screen | | |
+6 | View Player Profit | View a list of all prize money the player has won | | |
 
 **Test 8:** Player view winnings
 
@@ -158,8 +156,8 @@ This tests validates that a player can only view their own winnings.
 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
-1 | Click Player | Opens Player Screen | | | 
-2 | Click Total Prize | View a list of all prize money the player has won | | |
+1 | Click Player | Opens Player Profile Screen | | | 
+2 | View Player Profile | View a list of all prize money the player has won | | |
 
 **Test 9:** Removing players
 
@@ -170,11 +168,12 @@ This tests validates that the system does not fault when players are removed tha
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | | | 
-2 | Click Remove Player | Opens Screen to remove player information | | |
-3 | Enter User name who has not won prizes | User name typed into system | | |
-4 | Click Remove | Player removed from system | | |
-5 | Repeat steps 2 through 4 with a user name that has won prizes | Player removed from system | | |
-6 | Click button to start tournament | Start tournament fails | | |
-7 | Return to Management screen | Opens Management Screen | | |
-8 | Click All Players Total Prize | View a list of all players that have win prizes | | |
-9 | Verify values | Verify deleting did not affect results of other players | | |
+2 | Click Player List | Opens Player List Screen | | | 
+3 | Click Player who has not won prizes | Opens Player Profile Screen | | | 
+4 | Click Remove Player | Removes player information | | |
+5 | Return to Player List | Opens Player List Screen | | |
+6 | Click Player who has won prizes | Opens Player Profile Screen | | | 
+7 | Click Remove Player | Removes player information | | |
+8 | Return to Management screen | Opens Management Screen | | |
+9 | Click Player List | View a list of all players that have win prizes | | |
+10 | Verify values | Verify deleting did not affect results of other players | | |
