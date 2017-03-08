@@ -64,9 +64,22 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             List<Deck> deckList = deckDao.queryForAll();
 
             RuntimeExceptionDao<Player, String> playerDao = getPlayerRuntimeExceptionDao();
-            playerDao.create(new Player("player1", "Player One", "222-333-4444", deckList.get(0)));
-            playerDao.create(new Player("player2", "Player Two", "322-333-4444", deckList.get(1)));
-            playerDao.create(new Player("player3", "Player Three", "422-333-4444", deckList.get(2)));
+            playerDao.create(new Player("player1", "Player One", "111-111-1111", deckList.get(0)));
+            playerDao.create(new Player("player2", "Player Two", "222-222-2222", deckList.get(1)));
+            playerDao.create(new Player("player3", "Player Three", "333-333-3333", deckList.get(2)));
+            playerDao.create(new Player("player4", "Player Four", "444-444-4444", deckList.get(3)));
+            playerDao.create(new Player("player5", "Player Five", "555-555-5555", deckList.get(4)));
+            playerDao.create(new Player("player6", "Player Six", "666-666-6666", deckList.get(5)));
+            playerDao.create(new Player("player7", "Player Seven", "777-777-7777", deckList.get(1)));
+            playerDao.create(new Player("player8", "Player Eight", "888-888-8888", deckList.get(2)));
+            playerDao.create(new Player("player9", "Player Nine", "111-111-1111", deckList.get(0)));
+            playerDao.create(new Player("player10", "Player Ten", "222-222-2222", deckList.get(1)));
+            playerDao.create(new Player("player11", "Player Eleven", "333-333-3333", deckList.get(2)));
+            playerDao.create(new Player("player12", "Player Twelve", "444-444-4444", deckList.get(3)));
+            playerDao.create(new Player("player13", "Player Thirteen", "555-555-5555", deckList.get(4)));
+            playerDao.create(new Player("player14", "Player Fourteen", "666-666-6666", deckList.get(5)));
+            playerDao.create(new Player("player15", "Player Fifteen", "777-777-7777", deckList.get(1)));
+            playerDao.create(new Player("player16", "Player Sixteen", "888-888-8888", deckList.get(2)));
 
             Log.i(DatabaseHelper.class.getName(), "created Player entries in onCreate");
 
