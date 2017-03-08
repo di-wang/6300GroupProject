@@ -39,11 +39,11 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="House Cut:"
+                android:text="House Percentage:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView13"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:textStyle="normal|bold" />
 
             <EditText
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/editText5"
+                android:id="@+id/housePercentageEditText"
                 android:layout_weight="1"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView14"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:textStyle="normal|bold" />
 
             <EditText
@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
-                android:id="@+id/editText6"
+                android:id="@+id/entryPriceEditText"
                 android:layout_weight="1"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -120,6 +120,15 @@
                     android:id="@+id/textView38"
                     android:textAlignment="center" />
 
+                <TextView
+                    android:text="Number of entrants must be either 8 or 16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/numEntrantsErrorTextView"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textAlignment="center"
+                    android:visibility="gone"/>
+
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -141,6 +150,101 @@
                 </LinearLayout>
 
             </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Once all the information is inputted, click below button to show tournament info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView37"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:text="Show Tournament Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button11"
+                android:layout_weight="1"
+                android:onClick="showTournamentInfoButtonClickHandler" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="House Cut:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView42"
+                android:layout_weight="1"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/houseCutTextView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="First Prize:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView40"
+                android:layout_weight="1"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/firstPrizeTextView"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Second Prize:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView46"
+                android:layout_weight="1"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondPrizeTextView"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="Third Prize:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView44"
+                android:layout_weight="1"
+                android:textStyle="normal|bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/thirdPrizeTextView"
+                android:layout_weight="1" />
         </LinearLayout>
 
     </LinearLayout>
