@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class StartTournamentActivity extends OrmLiteBaseActivity<DatabaseHelper>
     List<Player> availablePlayers;
     Spinner spinner;
     boolean tournamentInfoErrorFlag;
+    Map<String, Integer> tournamentInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +63,22 @@ public class StartTournamentActivity extends OrmLiteBaseActivity<DatabaseHelper>
         int numberOfEntrants = getNumberOfEntrants();
 
         if (!this.tournamentInfoErrorFlag) {
-            Map<String, Integer> tournamentInfo = CurrentMode.getManagerMode().showTournamentInfo(
+            this.tournamentInfo = CurrentMode.getManagerMode().showTournamentInfo(
                     entrancePrice, numberOfEntrants, housePercentage
             );
 
-            updateTournamentInfoTextViews(tournamentInfo);
+            updateTournamentInfoTextViews(this.tournamentInfo);
+
+            Button startTournamentButton = (Button) findViewById(R.id.startTournamentButton);
+            startTournamentButton.setClickable(true);
         }
+    }
+
+    public void startTournamentButtonClickHandler(View view) {
+        CurrentMode.getManagerMode().createAndStartTournament(this.tournamentInfo, playerList);
+
+        Intent intent = new Intent(this, ManagerHomeActivity.class);
+        startActivity(intent);
     }
 
     private void updatePlayerSpinner() {

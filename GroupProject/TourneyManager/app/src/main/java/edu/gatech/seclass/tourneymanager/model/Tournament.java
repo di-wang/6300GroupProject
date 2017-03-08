@@ -17,13 +17,19 @@ public class Tournament {
     private int houseCut;
 
     @DatabaseField
-    private int entryPrice;
-
-    @DatabaseField
     private String allUsername;
 
     @DatabaseField(dataType = DataType.ENUM_STRING)
     private TournamentStatus status;
+
+    @DatabaseField
+    private int firstPrize;
+
+    @DatabaseField
+    private int secondPrize;
+
+    @DatabaseField
+    private int thirdPrize;
 
     @DatabaseField
     private String firstWinner;
@@ -44,10 +50,11 @@ public class Tournament {
 
     }
 
-    public Tournament(int houseCut, int entryPrice, String allUsername) {
+    public Tournament(int houseCut, int firstPrize, int secondPrize, int thirdPrize) {
         this.houseCut = houseCut;
-        this.entryPrice = entryPrice;
-        this.allUsername = allUsername;
+        this.firstPrize = firstPrize;
+        this.secondPrize = secondPrize;
+        this.thirdPrize = thirdPrize;
         this.status = TournamentStatus.ONGOING;
     }
 
@@ -85,7 +92,6 @@ public class Tournament {
         return "Tournament{" +
                 "id=" + id +
                 ", houseCut=" + houseCut +
-                ", entryPrice=" + entryPrice +
                 ", allUsername=" + allUsername +
                 ", status='" + status + '\'' +
                 ", firstWinner='" + firstWinner + '\'' +

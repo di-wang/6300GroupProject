@@ -15,6 +15,7 @@ import java.util.Map;
 
 import edu.gatech.seclass.tourneymanager.db.DatabaseHelper;
 import edu.gatech.seclass.tourneymanager.model.Deck;
+import edu.gatech.seclass.tourneymanager.model.Match;
 import edu.gatech.seclass.tourneymanager.model.Player;
 import edu.gatech.seclass.tourneymanager.model.Tournament;
 import edu.gatech.seclass.tourneymanager.utils.TourneyCalcAlgorithm;
@@ -83,11 +84,19 @@ public class ManagerMode {
         return tournamentInfo;
     }
 
-    public void createTournament(int houseCut, int entryPrice, String username) {
+    public void createAndStartTournament(Map<String, Integer> tournamentInfo, List<Player> playerList) {
+        //TODO: change usernames to be stored as many to many relationship instead of string
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
 
-        tournamentDao.create(new Tournament(houseCut, entryPrice, username));
+        Tournament tournament = new Tournament(tournamentInfo.get("houseCut"),
+                tournamentInfo.get("firstPrize"), tournamentInfo.get("secondPrize"),
+                tournamentInfo.get("thirdPrize"));
+
+        tournamentDao.create(tournament);
+
+        RuntimeExceptionDao<Match, Integer> matchDao = dbHelper.getMatchRuntimeExceptionDao();
+        matchDao.create(new Match(tournament, playerList.get(0), playerList.get(1)));
 
         OpenHelperManager.releaseHelper();
     }

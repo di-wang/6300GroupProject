@@ -82,20 +82,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
             playerDao.create(new Player("player16", "Player Sixteen", "888-888-8888", deckList.get(2)));
 
             Log.i(DatabaseHelper.class.getName(), "created Player entries in onCreate");
-
-            List<Player> playerList = playerDao.queryForAll();
-
-            RuntimeExceptionDao<Tournament, Integer> tournamentDao = getTournamentRuntimeExceptionDao();
-            tournamentDao.create(new Tournament(100, 100, "222-333-4444"));
-
-            Log.i(DatabaseHelper.class.getName(), "created Tournament entries in onCreate");
-
-            List<Tournament> tournamentList = tournamentDao.queryForAll();
-
-            RuntimeExceptionDao<Match, Integer> matchDao = getMatchRuntimeExceptionDao();
-            matchDao.create(new Match(tournamentList.get(0), playerList.get(0), playerList.get(1)));
-
-            Log.i(DatabaseHelper.class.getName(), "created Match entries in onCreate");
         } catch (RuntimeException e) {
 
         }
