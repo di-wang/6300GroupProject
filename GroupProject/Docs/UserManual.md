@@ -37,7 +37,7 @@ The manager can view the following information and have the following interactio
 
 #### Add/Remove players from the system
 * The manager can add additional players into the system .
-* The manager can remove players from the system.
+* The manager can remove players from the system by the remove button in a players profile they wish to remove.
 
 ##### Input fields for adding a player
 Field | Input Information
