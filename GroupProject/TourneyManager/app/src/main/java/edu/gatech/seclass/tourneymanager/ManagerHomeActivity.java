@@ -4,10 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import edu.gatech.seclass.tourneymanager.adapter.MatchAdapter;
 import edu.gatech.seclass.tourneymanager.mode.CurrentMode;
+import edu.gatech.seclass.tourneymanager.model.Match;
 
 public class ManagerHomeActivity extends AppCompatActivity {
 
@@ -46,6 +51,13 @@ public class ManagerHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void endOngoingTournamentButtonClickHandler(View view) {
+        CurrentMode.getManagerMode().endOngoingTournament();
+
+        Intent intent = new Intent(this, ManagerHomeActivity.class);
+        startActivity(intent);
+    }
+
     private boolean checkOngoingTournament() throws SQLException {
         return CurrentMode.getManagerMode().thereIsOngoingTournament();
     }
@@ -64,5 +76,25 @@ public class ManagerHomeActivity extends AppCompatActivity {
 
         View ongoingTournamentView = findViewById(R.id.manager_ongoing_tournament_view);
         ongoingTournamentView.setVisibility(View.VISIBLE);
+
+        initializeMatchList();
+    }
+
+    private void initializeMatchList() throws SQLException {
+        List<Match> matchList = (List<Match>) getMatchList();
+
+        initializeMatchListView(matchList);
+    }
+
+    private List<Match> getMatchList() throws SQLException {
+        return CurrentMode.getPlayerMode().showMatchList();
+    }
+
+    private void initializeMatchListView(List<Match> matchList) {
+        ListView listview = (ListView) findViewById(R.id.manager_match_list);
+
+        MatchAdapter adapter = new MatchAdapter(this, (ArrayList<Match>) matchList);
+
+        listview.setAdapter(adapter);
     }
 }

@@ -21,7 +21,7 @@
         <activity android:name=".PlayerListActivity" />
         <activity android:name=".PlayerProfileActivity" />
         <activity android:name=".StartTournamentActivity" />
-        <activity android:name=".PlayerHomeActivity"></activity>
+        <activity android:name=".PlayerHomeActivity" />
     </application>
 
 </manifest>

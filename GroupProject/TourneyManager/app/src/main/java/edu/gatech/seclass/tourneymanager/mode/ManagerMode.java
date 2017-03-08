@@ -80,4 +80,18 @@ public class ManagerMode {
     public void getOngoingTournament() {
 
     }
+
+    public void endOngoingTournament() {
+        if (this.ongoingTournament == null) {
+            throw new IllegalStateException("There is no ongoing tournament.");
+        }
+
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+
+        //TODO: check if tournament has ended prematurely and money needs to be refunded
+
+        this.ongoingTournament.endTournament();
+        tournamentDao.update(this.ongoingTournament);
+    }
 }

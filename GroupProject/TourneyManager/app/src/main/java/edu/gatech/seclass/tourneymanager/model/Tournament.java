@@ -55,6 +55,10 @@ public class Tournament {
         return this.id;
     }
 
+    public void endTournament() {
+        this.status = TournamentStatus.COMPLETE;
+    }
+
     public int[] calculatePrizesAndProfit(int totalPool){
         int firstPrize;
         int secondPrize;
