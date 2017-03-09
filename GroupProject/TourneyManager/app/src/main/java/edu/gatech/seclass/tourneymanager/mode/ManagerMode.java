@@ -120,7 +120,7 @@ public class ManagerMode {
     }
     
     
-    //Di added these methods for use
+ //Di added these methods for use
     public Map<Integer, Integer> showHouseProfit() throws SQLException{
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
@@ -139,20 +139,20 @@ public class ManagerMode {
         return houseProfit;
     }
 
-    public Map<String, Integer> showPlayerTotal() throws SQLException{
+    public Map<String, Integer> showPlayerTotalPrize() throws SQLException{
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
 
         List<Player> playerList = playerDao.queryForAll();
         OpenHelperManager.releaseHelper();
 
-        Map<String, Integer> houseProfit = new HashMap<String, Integer>();
+        Map<String, Integer> playerTotalPrize = new HashMap<String, Integer>();
 
         int n = playerList.size();
         //Query all players, put the player username and player total prize in hashmap
         for (int i=0; i<n; i++){
-            houseProfit.put(playerList.get(i).getUsername(),playerList.get(i).getTotalPrize());
+            playerTotalPrize.put(playerList.get(i).getUsername(),playerList.get(i).getTotalPrize());
         }
-        return houseProfit;
+        return playerTotalPrize;
     }
 }
