@@ -14,11 +14,11 @@ Decided that each of the documents should be mainly authored by 1 person and fin
 ### Meeting 3 (2/27/2017)
 Use OrmLite for database access. Acain33 work on document updates/creation. Dwang383 work on manager class functions. Eredmund6 work on player/tournament functions. Jjung327 work on front end with all the android graphical files. Meet again on Wednesday to start initial integration or help parts that need additional work. Andrew is project manager for Delivery 3.
 
-### Meeting 4 (2/29/2017)
+### Meeting 4 (3/1/2017)
 Continue code debugging. Use Jjung327 code as base as the ormlite package base is having issues on the VM set up.
 
-### Meeting 5
-Not occurred yet.
+### Meeting 5 (3/8/2017)
+Eredmund6 and Dwang383 continue backend coding: Tournament/Match functionality and House Cut functionality. Jjung327 work to integrate backend into front end. Acain33 remove change deck requirement from docs to fit time schedule, update user manual with screen shots and run tests as app is updated.
 
 ### Meeting 6
 Not occurred yet.
