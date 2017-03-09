@@ -119,8 +119,9 @@ public class ManagerMode {
         tournamentDao.update(this.ongoingTournament);
     }
     
-     //Di added these methods for displaying houseProfit and playerTotal
-    public Map<Integer, Integer> houseProfit() throws SQLException{
+    
+    //Di added these methods for use
+    public Map<Integer, Integer> showHouseProfit() throws SQLException{
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
 
@@ -138,11 +139,11 @@ public class ManagerMode {
         return houseProfit;
     }
 
-    public Map<String, Integer> playerTotal() throws SQLException{
+    public Map<String, Integer> showPlayerTotal() throws SQLException{
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
 
-        List<Player> playerList = playerDao.queryBuilder();
+        List<Player> playerList = playerDao.queryForAll();
         OpenHelperManager.releaseHelper();
 
         Map<String, Integer> houseProfit = new HashMap<String, Integer>();
