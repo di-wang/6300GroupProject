@@ -61,7 +61,9 @@ public class Tournament {
     public int getId() {
         return this.id;
     }
-
+    
+    public int getTotalProfit() {return totalProfit; }
+    
     public void endTournament() {
         this.status = TournamentStatus.COMPLETE;
     }
