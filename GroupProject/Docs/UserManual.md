@@ -93,7 +93,6 @@ The following describes the actions the Player may take with the Tournament Mana
 The starting screen once a Player selects **Player** is their personal page. This page list the player information that was input by the Manager and their tournament winnings.
 
 ### Player interactions when no tournament is operating
-* The player is able to select the deck they wish to use for future tournaments.
 * The player can view their information on the main Player screen.
 * The player can view their historical tournament winnings; By tournament or by total.
 
