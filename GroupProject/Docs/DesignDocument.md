@@ -30,7 +30,7 @@ The following sections describe the architectural diagrams for the application.
 
 ### 2.1 Component Diagram
 
-![componentdiagram](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/component-diagram.png)
+![componentdiagram](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/component-diagram.png)
 
 ### 2.2 Deployment Diagram
 
@@ -42,7 +42,7 @@ The following sections describe the low-level diagrams for the application.
 
 ### 3.1 Class Diagram
 
-![designteam](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/design-team.png)
+![designteam](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/design-team.png)
 
 ### 3.2 Other Diagrams
 
@@ -54,24 +54,24 @@ The following images show the initial user interface design for the application.
 
 * Home Screen
 
-![home](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-home.png)
+![home](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/manager-home.png)
 
 * Mode Switch Screen
 
-![mode](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/mode-seleciton.png)
+![mode](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/mode-seleciton.png)
 
 * List of Players and Prizes Screen
 
-![playerlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerlist.png)
+![playerlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/manager-playerlist.png)
 
 * List of Individual Player Winnings
 
-![playerindividual](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-playerindividual.png)
+![playerindividual](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/manager-playerindividual.png)
 
 * Tournament Information Screen
 
-![tournamentinfo](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentinfo.png)
+![tournamentinfo](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/manager-tournamentinfo.png)
 
 * List of Tournaments and Status
 
-![tournamentlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/manager-tournamentlist.png)
+![tournamentlist](https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/manager-tournamentlist.png)
