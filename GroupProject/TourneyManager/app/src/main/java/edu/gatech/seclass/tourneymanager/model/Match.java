@@ -4,6 +4,9 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @DatabaseTable(tableName="match")
 public class Match {
@@ -49,6 +52,14 @@ public class Match {
 
     public Player getPlayer2() {
         return this.player2;
+    }
+
+    public List<Player> getPlayers() {
+        List<Player> players = new ArrayList<Player>();
+        players.add(this.player1);
+        players.add(this.player2);
+
+        return players;
     }
 
     public String getStatus() {

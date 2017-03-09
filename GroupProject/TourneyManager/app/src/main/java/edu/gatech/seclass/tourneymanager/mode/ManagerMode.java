@@ -103,10 +103,6 @@ public class ManagerMode {
         initializeMatches(tournament, playerList);
     }
 
-    public void getOngoingTournament() {
-
-    }
-
     public void endOngoingTournament() {
         if (this.ongoingTournament == null) {
             throw new IllegalStateException("There is no ongoing tournament.");
@@ -121,6 +117,20 @@ public class ManagerMode {
         tournamentDao.update(this.ongoingTournament);
 
         OpenHelperManager.releaseHelper();
+    }
+
+    public void startMatch(Match match) {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
+
+        match.startMatch();
+        matchDao.update(match);
+
+        OpenHelperManager.releaseHelper();
+    }
+
+    public void endMatch(Match match) {
+
     }
 
     public List<Tournament> viewPastProfits() throws SQLException {

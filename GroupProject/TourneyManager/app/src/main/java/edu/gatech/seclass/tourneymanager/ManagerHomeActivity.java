@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,8 +16,10 @@ import java.util.List;
 import edu.gatech.seclass.tourneymanager.adapter.MatchAdapter;
 import edu.gatech.seclass.tourneymanager.mode.CurrentMode;
 import edu.gatech.seclass.tourneymanager.model.Match;
+import edu.gatech.seclass.tourneymanager.model.Player;
 
 public class ManagerHomeActivity extends AppCompatActivity {
+    Match selectedMatch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,5 +106,42 @@ public class ManagerHomeActivity extends AppCompatActivity {
         MatchAdapter adapter = new MatchAdapter(this, (ArrayList<Match>) matchList);
 
         listview.setAdapter(adapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Match match = (Match) parent.getItemAtPosition(position);
+
+                View startMatchView = (View) findViewById(R.id.start_match_linear_layout);
+                View endMatchView = (View) findViewById(R.id.end_match_linear_layout);
+
+                if (match.isMatchReady()) {
+                    startMatchView.setVisibility(View.VISIBLE);
+                    endMatchView.setVisibility(View.GONE);
+                }
+                else if (match.isMatchOngoing()) {
+                    startMatchView.setVisibility(View.GONE);
+                    endMatchView.setVisibility(View.VISIBLE);
+
+                    updateMatchPlayersSpinner(match.getPlayers());
+                }
+                else {
+                    startMatchView.setVisibility(View.GONE);
+                    endMatchView.setVisibility(View.GONE);
+                }
+
+                selectedMatch = match;
+            }
+        });
+    }
+
+    private void updateMatchPlayersSpinner(List<Player> players) {
+        Spinner spinner = (Spinner) findViewById(R.id.winner_spinner);
+
+        ArrayAdapter<Player> dataAdapter = new ArrayAdapter<Player>(this,
+                android.R.layout.simple_spinner_item, players);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
     }
 }

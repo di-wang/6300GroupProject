@@ -172,6 +172,19 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:text="Click on match to start or end match"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView45"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
                         android:text="Players"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -202,6 +215,62 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/manager_match_list" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/start_match_linear_layout"
+                            android:visibility="gone">
+
+                            <Button
+                                android:text="Start Match"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/button12"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/end_match_linear_layout"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:text="Winner:"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView48"
+                                android:layout_weight="1" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/winner_spinner"
+                                android:layout_weight="1" />
+
+                            <Button
+                                android:text="End Match"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/button13"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
