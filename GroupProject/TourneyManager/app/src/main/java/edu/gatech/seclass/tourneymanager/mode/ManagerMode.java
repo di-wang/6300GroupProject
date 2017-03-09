@@ -99,6 +99,8 @@ public class ManagerMode {
         matchDao.create(new Match(tournament, playerList.get(0), playerList.get(1)));
 
         OpenHelperManager.releaseHelper();
+
+        initializeMatches(tournament, playerList);
     }
 
     public void getOngoingTournament() {
@@ -131,5 +133,18 @@ public class ManagerMode {
         OpenHelperManager.releaseHelper();
 
         return tournamentList;
+    }
+
+    private void initializeMatches(Tournament tournament, List<Player> playerList) {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
+
+        // First round of tournament
+        for (int i = 0; i < playerList.size() / 2; i++) {
+            Match match = new Match(tournament, playerList.get(2 * i), playerList.get(2 * i + 1));
+            matchDao.create(match);
+        }
+
+        OpenHelperManager.releaseHelper();
     }
 }

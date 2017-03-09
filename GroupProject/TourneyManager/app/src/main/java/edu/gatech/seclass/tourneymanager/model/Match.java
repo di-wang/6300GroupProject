@@ -27,7 +27,12 @@ public class Match {
     private MatchStatus status;
 
     public Match() {
+    }
 
+    public Match(Tournament tournament) {
+        super();
+        this.tournament = tournament;
+        this.status = MatchStatus.READY;
     }
 
     public Match(Tournament tournament, Player player1, Player player2) {
