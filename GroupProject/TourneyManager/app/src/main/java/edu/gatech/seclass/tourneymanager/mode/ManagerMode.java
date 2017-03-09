@@ -126,8 +126,22 @@ public class ManagerMode {
                         .eq("tournament_id", ongoingTournament.getId().toString()).and()
                         .eq("round", 3).query().get(0);
 
-                this.ongoingTournament.endTournament(finalMatch.getWinner(), finalMatch.getLoser(),
-                        thirdMatch.getWinner());
+                Player firstPlace = finalMatch.getWinner();
+                Player secondPlace = finalMatch.getLoser();
+                Player thirdPlace = thirdMatch.getWinner();
+
+                this.ongoingTournament.endTournament(firstPlace, secondPlace, thirdPlace);
+
+                // Add prizes to players
+                RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
+
+                firstPlace.addTotalPrize(this.ongoingTournament.getFirstPrize());
+                secondPlace.addTotalPrize(this.ongoingTournament.getSecondPrize());
+                thirdPlace.addTotalPrize(this.ongoingTournament.getThirdPrize());
+
+                playerDao.update(firstPlace);
+                playerDao.update(secondPlace);
+                playerDao.update(thirdPlace);
             }
             catch (SQLException e) {
                 //TODO: handle error

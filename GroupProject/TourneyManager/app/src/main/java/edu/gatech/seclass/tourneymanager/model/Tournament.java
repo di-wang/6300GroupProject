@@ -73,6 +73,10 @@ public class Tournament {
 
     public Integer getCurrentRound() { return this.currentRound; }
 
+    public Integer getFirstPrize() { return this.firstPrize; }
+    public Integer getSecondPrize() { return this.secondPrize; }
+    public Integer getThirdPrize() { return this.thirdPrize; }
+
     public String getCurrentRoundInString() {
         if (this.currentRound == 2) {
             return "Final";

@@ -19,8 +19,8 @@ public class Player {
     @DatabaseField(foreign = true)
     private Deck deck;
 
-    @DatabaseField(defaultValue = "0")
-    private Integer totalPrize;
+    @DatabaseField
+    private int totalPrize;
 
     public Player() {
 
@@ -32,6 +32,7 @@ public class Player {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.deck = deck;
+        this.totalPrize = 0;
     }
 
     public String getUsername() {
@@ -43,6 +44,14 @@ public class Player {
 
     public Integer getTotalPrize() {
         return totalPrize;
+    }
+    public void addTotalPrize(Integer prize) {
+        try {
+            this.totalPrize += prize;
+        }
+        catch (NullPointerException e){
+            this.totalPrize = prize;
+        }
     }
 
     @Override
