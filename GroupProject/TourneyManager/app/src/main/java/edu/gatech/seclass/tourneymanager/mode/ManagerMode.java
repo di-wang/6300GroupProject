@@ -117,5 +117,19 @@ public class ManagerMode {
 
         this.ongoingTournament.endTournament();
         tournamentDao.update(this.ongoingTournament);
+
+        OpenHelperManager.releaseHelper();
+    }
+
+    public List<Tournament> viewPastProfits() throws SQLException {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+
+        List<Tournament> tournamentList = tournamentDao.queryBuilder()
+                .where().eq("status", Tournament.TournamentStatus.COMPLETE).query();
+
+        OpenHelperManager.releaseHelper();
+
+        return tournamentList;
     }
 }

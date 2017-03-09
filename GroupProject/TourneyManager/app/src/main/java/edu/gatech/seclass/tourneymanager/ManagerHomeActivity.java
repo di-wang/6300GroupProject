@@ -58,6 +58,11 @@ public class ManagerHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void viewPastProfitButtonClickHandler(View view) {
+        Intent intent = new Intent(this, ViewPastProfitActivity.class);
+        startActivity(intent);
+    }
+
     private boolean checkOngoingTournament() throws SQLException {
         return CurrentMode.getManagerMode().thereIsOngoingTournament();
     }

@@ -62,8 +62,13 @@ public class Tournament {
         return this.id;
     }
 
+    public Date getEndDate() { return this.endDate; }
+
+    public Integer getHouseCut() { return this.houseCut; }
+
     public void endTournament() {
         this.status = TournamentStatus.COMPLETE;
+        this.endDate = new Date();
     }
 
     public int[] calculatePrizesAndProfit(int totalPool){

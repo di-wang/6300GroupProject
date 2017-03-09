@@ -22,6 +22,7 @@
         <activity android:name=".PlayerProfileActivity" />
         <activity android:name=".StartTournamentActivity" />
         <activity android:name=".PlayerHomeActivity" />
+        <activity android:name=".ViewPastProfitActivity"></activity>
     </application>
 
 </manifest>
