@@ -140,10 +140,10 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:text="There is an ongoing tournament"
+                        android:text="There is an ongoing tournament at round "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView32"
+                        android:id="@+id/ongoingTournamentStatusTextView"
                         android:layout_weight="1"
                         android:textAlignment="center"
                         android:paddingBottom="10sp"/>
@@ -176,7 +176,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView45"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:paddingBottom="4sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -189,21 +190,32 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView36"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:text="Status"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView35"
-                        android:layout_weight="2" />
+                        android:layout_weight="2"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:text="Round"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView49"
+                        android:layout_weight="2"
+                        android:textSize="12sp" />
 
                     <TextView
                         android:text="Winner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/textView34"
-                        android:layout_weight="2" />
+                        android:layout_weight="2"
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -239,7 +251,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/button12"
-                                android:layout_weight="1" />
+                                android:layout_weight="1"
+                                android:onClick="startMatchButtonClickHandler" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -267,7 +280,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/button13"
-                                android:layout_weight="1" />
+                                android:layout_weight="1"
+                                android:onClick="endMatchButtonClickHandler" />
                         </LinearLayout>
 
                     </LinearLayout>

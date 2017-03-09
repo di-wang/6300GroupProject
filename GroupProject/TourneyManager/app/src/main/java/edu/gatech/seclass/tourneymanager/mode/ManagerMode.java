@@ -84,6 +84,10 @@ public class ManagerMode {
         return tournamentInfo;
     }
 
+    public Integer getOngoingTournamentCurrentRound() {
+        return this.ongoingTournament.getCurrentRound();
+    }
+
     public void createAndStartTournament(Map<String, Integer> tournamentInfo, List<Player> playerList) {
         //TODO: change usernames to be stored as many to many relationship instead of string
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
@@ -91,12 +95,9 @@ public class ManagerMode {
 
         Tournament tournament = new Tournament(tournamentInfo.get("houseCut"),
                 tournamentInfo.get("firstPrize"), tournamentInfo.get("secondPrize"),
-                tournamentInfo.get("thirdPrize"));
+                tournamentInfo.get("thirdPrize"), playerList.size());
 
         tournamentDao.create(tournament);
-
-        RuntimeExceptionDao<Match, Integer> matchDao = dbHelper.getMatchRuntimeExceptionDao();
-        matchDao.create(new Match(tournament, playerList.get(0), playerList.get(1)));
 
         OpenHelperManager.releaseHelper();
 
@@ -129,8 +130,29 @@ public class ManagerMode {
         OpenHelperManager.releaseHelper();
     }
 
-    public void endMatch(Match match) {
+    public void endMatch(Match match, Player winner) {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
 
+        match.endMatch(winner);
+        matchDao.update(match);
+
+        // Decrement current round match count for tournament
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+        ongoingTournament.matchEnded();
+        tournamentDao.update(ongoingTournament);
+
+        OpenHelperManager.releaseHelper();
+
+        if (!ongoingTournament.isGameLeftForCurrentRound()) {
+            try {
+                initializeNextRound();
+            }
+            catch (SQLException e) {
+                //TODO: handle SQLException
+                Log.e("initializeNextRound", e.getStackTrace().toString());
+            }
+        }
     }
 
     public List<Tournament> viewPastProfits() throws SQLException {
@@ -151,9 +173,37 @@ public class ManagerMode {
 
         // First round of tournament
         for (int i = 0; i < playerList.size() / 2; i++) {
-            Match match = new Match(tournament, playerList.get(2 * i), playerList.get(2 * i + 1));
+            Match match = new Match(tournament, playerList.get(2 * i), playerList.get(2 * i + 1),
+                    playerList.size());
             matchDao.create(match);
         }
+
+        OpenHelperManager.releaseHelper();
+    }
+
+    private void initializeNextRound() throws SQLException {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
+
+        Integer lastRound = this.ongoingTournament.getCurrentRound();
+        this.ongoingTournament.nextRound();
+        Integer nextRound = this.ongoingTournament.getCurrentRound();
+
+        List<Match> matchList = matchDao.queryBuilder().where()
+                .eq("tournament_id", ongoingTournament.getId().toString()).and()
+                .eq("round", lastRound).query();
+
+        for (int i = 0; i < matchList.size() / 2; i++) {
+            Match match = new Match(this.ongoingTournament, matchList.get(2 * i).getWinner(),
+                    matchList.get(2 * i + 1).getWinner(), nextRound);
+            matchDao.create(match);
+        }
+
+
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+        this.ongoingTournament.nextRound();
+        ongoingTournament.matchEnded();
+        tournamentDao.update(ongoingTournament);
 
         OpenHelperManager.releaseHelper();
     }

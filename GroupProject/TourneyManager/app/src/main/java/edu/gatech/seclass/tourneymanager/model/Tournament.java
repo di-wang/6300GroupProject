@@ -23,6 +23,12 @@ public class Tournament {
     private TournamentStatus status;
 
     @DatabaseField
+    private int currentRound;
+
+    @DatabaseField
+    private int numberOfGamesLeftCurrentRound;
+
+    @DatabaseField
     private int firstPrize;
 
     @DatabaseField
@@ -50,21 +56,50 @@ public class Tournament {
 
     }
 
-    public Tournament(int houseCut, int firstPrize, int secondPrize, int thirdPrize) {
+    public Tournament(int houseCut, int firstPrize, int secondPrize, int thirdPrize, int currentRound) {
         this.houseCut = houseCut;
         this.firstPrize = firstPrize;
         this.secondPrize = secondPrize;
         this.thirdPrize = thirdPrize;
         this.status = TournamentStatus.ONGOING;
+        this.currentRound = currentRound;
+        this.numberOfGamesLeftCurrentRound = currentRound / 2;
     }
 
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
 
     public Date getEndDate() { return this.endDate; }
 
     public Integer getHouseCut() { return this.houseCut; }
+
+    public Integer getCurrentRound() { return this.currentRound; }
+
+    public String getCurrentRoundInString() {
+        if (this.currentRound == 2) {
+            return "Final";
+        }
+        else if (this.currentRound == 4) {
+            return "Semi-final";
+        }
+        else {
+            return this.currentRound + "th";
+        }
+    }
+
+    public boolean isGameLeftForCurrentRound() {
+       return (this.numberOfGamesLeftCurrentRound != 0);
+    }
+
+    public void matchEnded() {
+        this.numberOfGamesLeftCurrentRound -= 1;
+    }
+
+    public void nextRound() {
+        this.currentRound = this.currentRound / 2;
+        this.numberOfGamesLeftCurrentRound = this.currentRound / 2;
+    }
 
     public void endTournament() {
         this.status = TournamentStatus.COMPLETE;

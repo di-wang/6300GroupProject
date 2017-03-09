@@ -27,10 +27,12 @@ public class MatchAdapter extends ArrayAdapter<Match> {
         }
         TextView tvPlayerNames = (TextView) convertView.findViewById(R.id.player_names_text_view);
         TextView tvStatus = (TextView) convertView.findViewById(R.id.status_text_view);
+        TextView tvRound = (TextView) convertView.findViewById(R.id.round_text_view);
         TextView tvWinner = (TextView) convertView.findViewById(R.id.winner_text_view);
 
         tvPlayerNames.setText(match.getPlayer1().toString() + " vs. " + match.getPlayer2().toString());
         tvStatus.setText(match.getStatus());
+        tvRound.setText(match.getRoundInString());
         tvWinner.setText(match.getWinnerInString());
 
         return convertView;

@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -68,6 +69,23 @@ public class ManagerHomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void startMatchButtonClickHandler(View view) {
+        CurrentMode.getManagerMode().startMatch(this.selectedMatch);
+
+        Intent intent = new Intent(this, ManagerHomeActivity.class);
+        startActivity(intent);
+    }
+
+    public void endMatchButtonClickHandler(View view) {
+        Spinner spinner = (Spinner) findViewById(R.id.winner_spinner);
+
+        Player winner = (Player) spinner.getSelectedItem();
+        CurrentMode.getManagerMode().endMatch(this.selectedMatch, winner);
+
+        Intent intent = new Intent(this, ManagerHomeActivity.class);
+        startActivity(intent);
+    }
+
     private boolean checkOngoingTournament() throws SQLException {
         return CurrentMode.getManagerMode().thereIsOngoingTournament();
     }
@@ -86,6 +104,11 @@ public class ManagerHomeActivity extends AppCompatActivity {
 
         View ongoingTournamentView = findViewById(R.id.manager_ongoing_tournament_view);
         ongoingTournamentView.setVisibility(View.VISIBLE);
+
+        // Show current round
+        Integer currentRound = CurrentMode.getManagerMode().getOngoingTournamentCurrentRound();
+        TextView ongoingTournamentStatusView = (TextView) findViewById(R.id.ongoingTournamentStatusTextView);
+        ongoingTournamentStatusView.setText(ongoingTournamentStatusView.getText() + currentRound.toString());
 
         initializeMatchList();
     }

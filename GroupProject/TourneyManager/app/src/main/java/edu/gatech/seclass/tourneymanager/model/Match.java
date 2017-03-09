@@ -29,21 +29,19 @@ public class Match {
     @DatabaseField(dataType = DataType.ENUM_STRING)
     private MatchStatus status;
 
+    @DatabaseField
+    private int round;
+
     public Match() {
     }
 
-    public Match(Tournament tournament) {
-        super();
-        this.tournament = tournament;
-        this.status = MatchStatus.READY;
-    }
-
-    public Match(Tournament tournament, Player player1, Player player2) {
+    public Match(Tournament tournament, Player player1, Player player2, int round) {
         super();
         this.tournament = tournament;
         this.player1 = player1;
         this.player2 = player2;
         this.status = MatchStatus.READY;
+        this.round = round;
     }
 
     public Player getPlayer1() {
@@ -66,8 +64,22 @@ public class Match {
         return this.status.name();
     }
 
+    public Player getWinner() { return this.winner; }
+
     public String getWinnerInString() {
         return (this.winner != null) ? this.winner.toString() : "";
+    }
+
+    public String getRoundInString() {
+        if (this.round == 2) {
+            return "Final";
+        }
+        else if (this.round == 4) {
+            return "Semi-final";
+        }
+        else {
+            return this.round + "th";
+        }
     }
 
     public void startMatch() {
