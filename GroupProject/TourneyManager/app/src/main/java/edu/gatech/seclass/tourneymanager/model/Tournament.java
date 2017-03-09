@@ -37,20 +37,17 @@ public class Tournament {
     @DatabaseField
     private int thirdPrize;
 
-    @DatabaseField
-    private String firstWinner;
+    @DatabaseField(foreign = true)
+    private Player firstWinner;
 
-    @DatabaseField
-    private String secondWinner;
+    @DatabaseField(foreign = true)
+    private Player secondWinner;
 
-    @DatabaseField
-    private String thirdWinner;
+    @DatabaseField(foreign = true)
+    private Player thirdWinner;
 
     @DatabaseField
     private Date endDate;
-
-    @DatabaseField
-    private int totalProfit;
 
     public Tournament() {
 
@@ -98,12 +95,29 @@ public class Tournament {
 
     public void nextRound() {
         this.currentRound = this.currentRound / 2;
-        this.numberOfGamesLeftCurrentRound = this.currentRound / 2;
+        if (this.currentRound == 2) {
+            // For finals there are two games
+            this.numberOfGamesLeftCurrentRound = 2;
+        }
+        else {
+            this.numberOfGamesLeftCurrentRound = this.currentRound / 2;
+        }
     }
 
-    public void endTournament() {
+    public void endTournamentPrematurely() {
+        // All money is refunded
+        this.houseCut = 0;
         this.status = TournamentStatus.COMPLETE;
         this.endDate = new Date();
+    }
+
+    public void endTournament(Player firstPlace, Player secondPlace, Player thirdPlace) {
+        this.status = TournamentStatus.COMPLETE;
+        this.endDate = new Date();
+
+        this.firstWinner = firstPlace;
+        this.secondWinner = secondPlace;
+        this.thirdWinner = thirdPlace;
     }
 
     public int[] calculatePrizesAndProfit(int totalPool){
@@ -143,5 +157,14 @@ public class Tournament {
 
     public enum TournamentStatus {
         ONGOING, COMPLETE
+    }
+
+    public boolean didEndedPrematurely() {
+        if (this.currentRound == 2 && this.numberOfGamesLeftCurrentRound == 0) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

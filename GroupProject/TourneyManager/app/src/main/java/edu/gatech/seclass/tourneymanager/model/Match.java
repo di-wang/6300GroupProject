@@ -66,6 +66,15 @@ public class Match {
 
     public Player getWinner() { return this.winner; }
 
+    public Player getLoser() {
+        if (this.player1.getUsername().equals(this.winner.getUsername())){
+            return this.player2;
+        }
+        else {
+            return this.player1;
+        }
+    }
+
     public String getWinnerInString() {
         return (this.winner != null) ? this.winner.toString() : "";
     }
@@ -76,6 +85,9 @@ public class Match {
         }
         else if (this.round == 4) {
             return "Semi-final";
+        }
+        else if (this.round == 3) {
+            return "Third";
         }
         else {
             return this.round + "th";

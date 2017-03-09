@@ -106,9 +106,9 @@ public class ManagerHomeActivity extends AppCompatActivity {
         ongoingTournamentView.setVisibility(View.VISIBLE);
 
         // Show current round
-        Integer currentRound = CurrentMode.getManagerMode().getOngoingTournamentCurrentRound();
+        String currentRound = CurrentMode.getManagerMode().getOngoingTournamentCurrentRound();
         TextView ongoingTournamentStatusView = (TextView) findViewById(R.id.ongoingTournamentStatusTextView);
-        ongoingTournamentStatusView.setText(ongoingTournamentStatusView.getText() + currentRound.toString());
+        ongoingTournamentStatusView.setText(ongoingTournamentStatusView.getText() + currentRound);
 
         initializeMatchList();
     }

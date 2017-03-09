@@ -84,8 +84,8 @@ public class ManagerMode {
         return tournamentInfo;
     }
 
-    public Integer getOngoingTournamentCurrentRound() {
-        return this.ongoingTournament.getCurrentRound();
+    public String getOngoingTournamentCurrentRound() {
+        return this.ongoingTournament.getCurrentRoundInString();
     }
 
     public void createAndStartTournament(Map<String, Integer> tournamentInfo, List<Player> playerList) {
@@ -113,8 +113,27 @@ public class ManagerMode {
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
 
         //TODO: check if tournament has ended prematurely and money needs to be refunded
+        if (this.ongoingTournament.didEndedPrematurely()) {
+            this.ongoingTournament.endTournamentPrematurely();
+        }
+        else {
+            RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
+            try {
+                Match finalMatch = matchDao.queryBuilder().where()
+                        .eq("tournament_id", ongoingTournament.getId().toString()).and()
+                        .eq("round", 2).query().get(0);
+                Match thirdMatch = matchDao.queryBuilder().where()
+                        .eq("tournament_id", ongoingTournament.getId().toString()).and()
+                        .eq("round", 3).query().get(0);
 
-        this.ongoingTournament.endTournament();
+                this.ongoingTournament.endTournament(finalMatch.getWinner(), finalMatch.getLoser(),
+                        thirdMatch.getWinner());
+            }
+            catch (SQLException e) {
+                //TODO: handle error
+                Log.e("End tournament", e.getStackTrace().toString());
+            }
+        }
         tournamentDao.update(this.ongoingTournament);
 
         OpenHelperManager.releaseHelper();
@@ -144,7 +163,8 @@ public class ManagerMode {
 
         OpenHelperManager.releaseHelper();
 
-        if (!ongoingTournament.isGameLeftForCurrentRound()) {
+        // Next round only when there is no game left and also current round is not final
+        if (!ongoingTournament.isGameLeftForCurrentRound() && (ongoingTournament.getCurrentRound() != 2)) {
             try {
                 initializeNextRound();
             }
@@ -199,10 +219,15 @@ public class ManagerMode {
             matchDao.create(match);
         }
 
+        // If tournament is in finals, initialize 3rd place match
+        if (nextRound == 2) {
+            Match match = new Match(this.ongoingTournament, matchList.get(0).getLoser(),
+                    matchList.get(1).getLoser(), 3);
+            matchDao.create(match);
+        }
+
 
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
-        this.ongoingTournament.nextRound();
-        ongoingTournament.matchEnded();
         tournamentDao.update(ongoingTournament);
 
         OpenHelperManager.releaseHelper();
