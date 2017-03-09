@@ -90,42 +90,11 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 9 | Repeat Steps 7 and 8 for all matches | Tournament finishes with the first player in each match winning | | |
 10 | Click view Results | Tournament runs as expected | | |
 
-**Test 4:** Players can add decks
-
-This tests validates that players can choose decks to use in a tournament.
-
-*PreReq:* Test 1 has been completed at least once.
-
-Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
------ | ------ | --------------- | ------------- | --------- | --------
-1 | Click Player | Opens Player Screen | | | 
-2 | Click Deck Options dropdown | List of decks is displayed | | |
-3 | Select deck | Deck is added to players deck options in the database | | |
-
-**Test 5:** Tournament works with all valid information
-
-This tests validates that the tournament will run with players and their own deck choices without fail.
-
-*PreReq:* Test 4 has been completed at least 8 times.
-
-Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
------ | ------ | --------------- | ------------- | --------- | --------
-1 | Click Manager | Opens Management Screen | | | 
-2 | Click Tournament | Opens Screen to input tournament information | | |
-3 | Enter Cut | House cut typed into system | | |
-4 | Enter Price | Price typed into system | | |
-5 | Enter User Names | User Names typed into system | | |
-6 | Click button to start tournament | Tournament begins | | |
-7 | Select a match | Match information opens | | |
-8 | Select the first player as a winner | First player wins the match | | |
-9 | Repeat Steps 7 and 8 for all matches | Tournament finishes with the first player in each match winning | | |
-10 | Click view Results | Tournament runs as expected | | |
-
-**Test 6:** Players can view match list
+**Test 4:** Players can view match list
 
 This tests validates that players can view the match list.
 
-*PreReq:* Test 5 has been completed to step 7
+*PreReq:* Test 3 has been completed to step 7
 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
@@ -133,7 +102,7 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 2 | Click Ongoing Tournament | Opens Screen to see current tournament matches | | |
 3 | Click Match | Player is able to see match information | | |
 
-**Test 7:** Manager view winnings
+**Test 5:** Manager view winnings
 
 This tests validates that a manager can view house and player winnings.
 
@@ -148,7 +117,7 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 5 | Click Player name | Opens Player Profile Screen | | |
 6 | View Player Profit | View a list of all prize money the player has won | | |
 
-**Test 8:** Player view winnings
+**Test 6:** Player view winnings
 
 This tests validates that a player can only view their own winnings.
 
@@ -159,11 +128,11 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 1 | Click Player | Opens Player Profile Screen | | | 
 2 | View Player Profile | View a list of all prize money the player has won | | |
 
-**Test 9:** Removing players
+**Test 7:** Removing players
 
 This tests validates that the system does not fault when players are removed that have won money or not.
 
-*PreReq:* Test 5 has been completed.
+*PreReq:* Test 3 has been completed.
 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
@@ -177,3 +146,37 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 8 | Return to Management screen | Opens Management Screen | | |
 9 | Click Player List | View a list of all players that have win prizes | | |
 10 | Verify values | Verify deleting did not affect results of other players | | |
+
+
+### Additional Test Cases if schedule permits extra features
+
+**Test E1:** Players can add decks
+
+This tests validates that players can choose decks to use in a tournament.
+
+*PreReq:* Test 1 has been completed at least once.
+
+Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
+----- | ------ | --------------- | ------------- | --------- | --------
+1 | Click Player | Opens Player Screen | | | 
+2 | Click Deck Options dropdown | List of decks is displayed | | |
+3 | Select deck | Deck is added to players deck options in the database | | |
+
+**Test E2:** Tournament works with all valid information
+
+This tests validates that the tournament will run with players and their own deck choices without fail.
+
+*PreReq:* Test 3 has been completed at least 8 times.
+
+Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
+----- | ------ | --------------- | ------------- | --------- | --------
+1 | Click Manager | Opens Management Screen | | | 
+2 | Click Tournament | Opens Screen to input tournament information | | |
+3 | Enter Cut | House cut typed into system | | |
+4 | Enter Price | Price typed into system | | |
+5 | Enter User Names | User Names typed into system | | |
+6 | Click button to start tournament | Tournament begins | | |
+7 | Select a match | Match information opens | | |
+8 | Select the first player as a winner | First player wins the match | | |
+9 | Repeat Steps 7 and 8 for all matches | Tournament finishes with the first player in each match winning | | |
+10 | Click view Results | Tournament runs as expected | | |

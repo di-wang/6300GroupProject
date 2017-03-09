@@ -6,7 +6,7 @@
 
 ## 1 Use Case Diagram
 
-![UseCaseDiagram] (https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/UseCaseDiagram.png)
+![UseCaseDiagram] (https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/UseCaseDiagram.png)
 
 
 ## 2 Use Case Descriptions
@@ -90,9 +90,3 @@
 * Pre-conditions: There is no ongoing tournament. All tournament states are marked as completed.
 * Post-conditions: Display totals for every player in the system, sorted by total. 
 * Scenarios: When there is no ongoing tournament, the player mode will display totals for every player in the system as a list sorted by total.
-
-#### Change Deck
-* Requirements: When there is no ongoing tournament, the player can change their deck in the system.
-* Pre-conditions: There is no ongoing tournament. Player is in the system.
-* Post-conditions: Display deck the player will use in the tournament.
-* Scenarios: When there is no ongoing tournament, the player mode will allow the player to change decks.

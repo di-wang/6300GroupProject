@@ -111,6 +111,7 @@ public class Tournament {
     public void endTournamentPrematurely() {
         // All money is refunded
         this.houseCut = 0;
+
         this.status = TournamentStatus.COMPLETE;
         this.endDate = new Date();
     }

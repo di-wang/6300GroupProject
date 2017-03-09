@@ -24,6 +24,8 @@ The following describes the actions the Manager may take with the Tournament Man
 ### Initial Manager screen
 The starting screen once a Manager selects **Manager** is the Organizations page. This page list the organizations information and has buttons to interact with other application pages.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/ManagerHome.png" alt="Initial Manager Screen" width="200" height="400">
+
 ### Manager interactions when no tournament is operating
 The manager can view the following information and have the following interactions with the application when no tournament is running.
 
@@ -31,13 +33,22 @@ The manager can view the following information and have the following interactio
 * The manager can view the total house winnings.
 * The manager can view the historical house cut winnings by tournament.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/HouseProfit.png" alt="House Information" width="200" height="400">
+
 #### View player information
 * The manager can view all players in the system.
 * The manager can view individual players individual information and historical winnings.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerList.png" alt="Player List" width="200" height="400">
+
 #### Add/Remove players from the system
 * The manager can add additional players into the system .
 * The manager can remove players from the system by the remove button in a players profile they wish to remove.
+
+
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerAdd.png" alt="Manager Player Add" width="200" height="400">
+
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerProfileManagerView.png" alt="Manager Player View" width="200" height="400">
 
 ##### Input fields for adding a player
 Field | Input Information
@@ -48,6 +59,8 @@ Phone Number | This is the users phone number to contact for any information reg
 
 #### Start tournament
 This section will describe the information input to start a tournament.
+
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/StartTournament.png" alt="Manager Player View" width="200" height="400">
 
 ##### Input fields for starting a tournament
 Field | Input Information
@@ -73,6 +86,8 @@ There is a single button called **Start Trournament** That will allow the Tourna
 ### Manager interactions when a tournament is operating
 The manager can view the following information and have the following interactions with the application when a tournament is ongoing.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/MatchList.png" alt="Match List" width="200" height="400">
+
 #### Interact with tournament information
 * The manager can view the tournament prize pool values.
 * The manager can end the current tournament due to error on set up.
@@ -89,16 +104,21 @@ The manager can view the following information and have the following interactio
 ## Player
 The following describes the actions the Player may take with the Tournament Manager application.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerHome.png" alt="Player Home" width="200" height="400">
+
 ### Initial Player screen
 The starting screen once a Player selects **Player** is their personal page. This page list the player information that was input by the Manager and their tournament winnings.
 
 ### Player interactions when no tournament is operating
-* The player is able to select the deck they wish to use for future tournaments.
 * The player can view their information on the main Player screen.
 * The player can view their historical tournament winnings; By tournament or by total.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerList.png" alt="Player List" width="200" height="400">
+
 ### Player interactions when a tournament is operating
 * The player can click the tournament button to move to the tournament information screen.
+
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/MatchListPlayer.png" alt="Match List" width="200" height="400">
 
 #### Tournament page
 * The player can view the tournament prize pool values.
