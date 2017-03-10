@@ -68,12 +68,12 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 1 | Click Manager | Opens Management Screen | Opens Management screen with 'Show Player List', 'View House Profits', 'Start a Tournament', and 'Add Player' | Pass | This screen will show unless someone has started a tournament on the device prior to testing
 2 | Click Start A Tournament | Opens Screen to input tournament information | Start Tournament screen is displayed | Pass |
 3 | Enter House Percentage | Illegal House cut typed into system | Integer value is entered into field  | Pass | Invalid values are 0 or 100
-4 | Click button Show Tournament Info | Invalid imput message | No error message  | **FAIL** |
+4 | Click button Show Tournament Info | Invalid input message | Error is displayed  | Pass |
 5 | Enter Entry Price | Illegal Price typed into system | Integer value is entered into field | Pass | Invalid value is 0
-6 | Click button Show Tournament Info | Invalid imput message | Error is displayed  | Pass |
+6 | Click button Show Tournament Info | Invalid input message | Error is displayed  | Pass |
 7 | Select Players | Illegal number of players selected | Players added to system | Pass | Invalid number of players are any combination not adding to 8 or 16
-8 | Click button Show Tournament Info | Invalid imput message | Error is displayed  | Pass |
-9 | Repeat for additional illegal values | Start tournament fails for all illegal values tested | All illegal values give errors | **Fail** | House Percent fails
+8 | Click button Show Tournament Info | Invalid input message | Error is displayed  | Pass |
+9 | Repeat for additional illegal values | Start tournament fails for all illegal values tested | All illegal values give errors | Pass | Illegal values all cause error messages
 
 **Test 3:** Tournament with no player input
 
@@ -130,8 +130,8 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 2 | Click View House Profits | View all house cuts from previous tournaments | Past Profits screen is displayed | Pass |
 3 | Return to Management screen | Opens Management Screen | Opens Management screen with 'Show Player List', 'View House Profits', 'Start a Tournament', and 'Add Player' | Pass |
 4 | Click Show Player List | View a list of all players that have win prizes | List of all players and total prize amount is displayed | Pass |
-5 | Click Player name | Opens Player Profile Screen | App crashes | **Fail** |
-6 | View Player Profit | View a list of all prize money the player has won | | |
+5 | Click Player name | Opens Player Profile Screen | Player Profile is opened | Pass |
+6 | View Player Profit | View a list of all prize money the player has won | Player Profile displays all tournament winnings | Pass |
 
 **Test 6:** Player view winnings
 
@@ -156,8 +156,8 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 2 | Click Show Player List | Opens Player information for manager to view | Player List is opened | Pass |
 3 | Click Player who has not won prizes | Opens Player Profile Screen | Player Profile is opened | Pass | 
 4 | Click Remove Player | Removes player information | Player is removed and user is returned to the Player List | Pass |
-5 | Click Player who has won prizes | Opens Player Profile Screen | App crash | **Fail** | 
-6 | Click Remove Player | Removes player information | No action | **Fail** |
+5 | Click Player who has won prizes | Opens Player Profile Screen | Player Profile is opened | Pass |
+6 | Click Remove Player | Removes player information | Removes player and returns to Player List | Pass |
 7 | Return to Management screen | Opens Management Screen | Opens Management screen with 'Show Player List', 'View House Profits', 'Start a Tournament', and 'Add Player' | Pass | This screen will show unless someone has started a tournament on the device prior to testing
 8 | Click Show Player List | Opens Player information for manager to view | Player List is opened | Pass |
 9 | Verify values | Verify deleting did not affect results of other players | Values are all correctly displayed | Pass |
