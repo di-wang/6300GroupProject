@@ -46,12 +46,7 @@ public class Player {
         return totalPrize;
     }
     public void addTotalPrize(Integer prize) {
-        try {
-            this.totalPrize += prize;
-        }
-        catch (NullPointerException e){
-            this.totalPrize = prize;
-        }
+        this.totalPrize += prize;
     }
 
     @Override

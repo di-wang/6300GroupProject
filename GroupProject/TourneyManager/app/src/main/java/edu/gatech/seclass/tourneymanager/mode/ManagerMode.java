@@ -68,6 +68,18 @@ public class ManagerMode extends Mode {
         return this.ongoingTournament.getCurrentRoundInString();
     }
 
+    public List<Player> viewAllPlayersTotalPrizes() throws SQLException  {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
+
+        List<Player> playerList = playerDao.queryBuilder()
+                .orderBy("totalPrize", false).query();
+
+        OpenHelperManager.releaseHelper();
+
+        return playerList;
+    }
+
     public void createAndStartTournament(Map<String, Integer> tournamentInfo, List<Player> playerList) {
         //TODO: change usernames to be stored as many to many relationship instead of string
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);

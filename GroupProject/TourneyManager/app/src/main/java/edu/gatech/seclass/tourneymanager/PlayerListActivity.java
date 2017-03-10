@@ -17,13 +17,16 @@ import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.QueryBuilder;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import edu.gatech.seclass.tourneymanager.adapter.PlayerAdapter;
 import edu.gatech.seclass.tourneymanager.db.DatabaseHelper;
+import edu.gatech.seclass.tourneymanager.mode.CurrentMode;
 import edu.gatech.seclass.tourneymanager.model.Deck;
 import edu.gatech.seclass.tourneymanager.model.Player;
+import edu.gatech.seclass.tourneymanager.utils.ErrorHandler;
 
 public class PlayerListActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     public static final String PLAYER_USERNAME = "edu.gatech.seclass.tourneymanager.PLAYER_USERNAME";
@@ -36,14 +39,20 @@ public class PlayerListActivity extends OrmLiteBaseActivity<DatabaseHelper> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_list);
 
+        try {
+            List<Player> playerList = CurrentMode.getManagerMode().viewAllPlayersTotalPrizes();
+
+            initializePlayerListView(playerList);
+        }
+        catch (SQLException e) {
+            ErrorHandler.SQLExceptionHandler(e, this);
+        }
+    }
+
+    private void initializePlayerListView(List<Player> playerList) {
         ListView listview = (ListView) findViewById(R.id.playerlist);
 
-        RuntimeExceptionDao<Player, String> playerDao = getHelper().getPlayerRuntimeExceptionDao();
-
-        ArrayList<Player> playerList = (ArrayList<Player>) playerDao.queryForAll();
-
-
-        PlayerAdapter adapter = new PlayerAdapter(this, playerList);
+        PlayerAdapter adapter = new PlayerAdapter(this, (ArrayList<Player>) playerList);
 
         listview.setAdapter(adapter);
 
