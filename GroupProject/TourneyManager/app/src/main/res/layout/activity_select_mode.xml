@@ -10,35 +10,51 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.gatech.seclass.tourneymanager.SelectModeActivity">
 
-    <TextView
-        android:text="Select Mode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:id="@+id/textView"
-        android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:text="Manager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
-        android:id="@+id/button"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="126dp"
-        android:onClick="selectManagerMode" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
 
-    <Button
-        android:text="Player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:id="@+id/button2"
-        android:layout_alignBaseline="@+id/button"
-        android:layout_alignBottom="@+id/button"
-        android:layout_alignParentEnd="true"
-        android:onClick="selectPlayerMode" />
+            <TextView
+                android:text="Select Mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:id="@+id/textView"
+                android:textSize="24sp"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:text="Player"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button2"
+                android:onClick="selectPlayerMode"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Manager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button"
+                android:onClick="selectManagerMode"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>
