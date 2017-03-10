@@ -174,8 +174,10 @@ This tests validates that players can choose decks to use in a tournament.
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Player | Opens Player Screen | | | 
-2 | Click Deck Options dropdown | List of decks is displayed | | |
-3 | Select deck | Deck is added to players deck options in the database | | |
+2 | Select player username | Player profile is displayed | | |
+3 | Click Deck Options dropdown | List of decks is displayed | | |
+4 | Select deck | Deck is added to players deck options in the database | | |
+4 | Verify deck change | Deck is changed | | |
 
 **Test E2:** Tournament works with all valid information
 
