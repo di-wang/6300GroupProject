@@ -33,7 +33,7 @@ The manager can view the following information and have the following interactio
 * The manager can view the total house winnings.
 * The manager can view the historical house cut winnings by tournament.
 
-<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/HouseProfit.png" alt="House Information" width="200" height="400">
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/HouseInformation.png" alt="House Information" width="200" height="400">
 
 #### View player information
 * The manager can view all players in the system.
@@ -46,9 +46,7 @@ The manager can view the following information and have the following interactio
 * The manager can remove players from the system by the remove button in a players profile they wish to remove.
 
 
-<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerAdd.png" alt="Manager Player Add" width="200" height="400">
-
-<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerProfileManagerView.png" alt="Manager Player View" width="200" height="400">
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/AddPlayer.png" alt="Manager Player Add" width="200" height="400"><img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerProfileManagerView.png" alt="Manager Player View" width="200" height="400">
 
 ##### Input fields for adding a player
 Field | Input Information
@@ -60,7 +58,7 @@ Phone Number | This is the users phone number to contact for any information reg
 #### Start tournament
 This section will describe the information input to start a tournament.
 
-<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/StartTournament.png" alt="Manager Player View" width="200" height="400">
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/StartTournament.png" alt="Manager Start Tournament" width="200" height="400">
 
 ##### Input fields for starting a tournament
 Field | Input Information
@@ -95,11 +93,14 @@ The manager can view the following information and have the following interactio
 * The manager can end the current tournament after all matches are completed.
 	* This will distribute the value of the the *House Cut*, *1st*, *2nd*, and *3rd* prizes to the correct user.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/ManagerWinner.png" alt="Manager Tournament Interactions" width="200" height="400">
+
 #### Interact with match information
 * The manager can start the match between players
 * The manager can select the winner and end the match between players
 * The manager can view all ongoing matches for the tournament and historical match results in the current tournament.
 
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/ManagerMatch.png" alt="Match List" width="200" height="400">
 
 ## Player
 The following describes the actions the Player may take with the Tournament Manager application.
@@ -118,7 +119,7 @@ The starting screen once a Player selects **Player** is their personal page. Thi
 ### Player interactions when a tournament is operating
 * The player can click the tournament button to move to the tournament information screen.
 
-<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/MatchListPlayer.png" alt="Match List" width="200" height="400">
+<img src="https://github.gatech.edu/gt-omscs-se-2017spring/6300Spring17Team75/blob/master/GroupProject/Docs/Images/PlayerMatch.png" alt="Match List" width="200" height="400">
 
 #### Tournament page
 * The player can view the tournament prize pool values.

@@ -108,7 +108,7 @@ public class StartTournamentActivity extends OrmLiteBaseActivity<DatabaseHelper>
 
         try {
             int housePercentage = Integer.parseInt(housePercentageEditText.getText().toString());
-            if (housePercentage < 0 || housePercentage > 100) {
+            if (housePercentage <= 0 || housePercentage >= 100) {
                 housePercentageEditText.setError("House percentage must be an integer between 0 and 100");
                 this.tournamentInfoErrorFlag = true;
             }
