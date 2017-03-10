@@ -18,6 +18,7 @@ import edu.gatech.seclass.tourneymanager.adapter.MatchAdapter;
 import edu.gatech.seclass.tourneymanager.mode.CurrentMode;
 import edu.gatech.seclass.tourneymanager.model.Match;
 import edu.gatech.seclass.tourneymanager.model.Player;
+import edu.gatech.seclass.tourneymanager.utils.ErrorHandler;
 
 public class ManagerHomeActivity extends AppCompatActivity {
     Match selectedMatch;
@@ -27,7 +28,6 @@ public class ManagerHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager_home);
 
-        //TODO: if there is no ongoing tournament
         try {
             boolean ongoingTournament = checkOngoingTournament();
 
@@ -38,7 +38,25 @@ public class ManagerHomeActivity extends AppCompatActivity {
                 whenNoOngoingTournament();
             }
         } catch (SQLException e) {
-            //TODO: handler error
+            ErrorHandler.SQLExceptionHandler(e, this);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        try {
+            boolean ongoingTournament = checkOngoingTournament();
+
+            if (ongoingTournament) {
+                whenOngoingTournament();
+            }
+            else {
+                whenNoOngoingTournament();
+            }
+        } catch (SQLException e) {
+            ErrorHandler.SQLExceptionHandler(e, this);
         }
     }
 
@@ -120,7 +138,7 @@ public class ManagerHomeActivity extends AppCompatActivity {
     }
 
     private List<Match> getMatchList() throws SQLException {
-        return CurrentMode.getPlayerMode().showMatchList();
+        return CurrentMode.getManagerMode().showMatchList();
     }
 
     private void initializeMatchListView(List<Match> matchList) {

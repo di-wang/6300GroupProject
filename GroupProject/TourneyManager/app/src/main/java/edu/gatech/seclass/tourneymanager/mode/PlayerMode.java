@@ -36,9 +36,7 @@ public class PlayerMode extends Mode {
     }
 
     public List<Match> showMatchList() throws SQLException  {
-        if (this.ongoingTournament == null) {
-            thereIsOngoingTournament();
-        }
+        thereIsOngoingTournament();
 
         if (this.ongoingTournament == null) {
             // This means no ongoingTournament, so should return empty string

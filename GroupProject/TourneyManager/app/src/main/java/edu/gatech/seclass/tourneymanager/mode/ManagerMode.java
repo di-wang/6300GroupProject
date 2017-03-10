@@ -12,6 +12,7 @@ import com.j256.ormlite.stmt.DeleteBuilder;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -178,6 +179,25 @@ public class ManagerMode extends Mode {
                 Log.e("initializeNextRound", e.getStackTrace().toString());
             }
         }
+    }
+
+    public List<Match> showMatchList() throws SQLException  {
+        thereIsOngoingTournament();
+
+        if (this.ongoingTournament == null) {
+            // This means no ongoingTournament, so should return empty string
+            return Collections.<Match>emptyList();
+        }
+
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
+
+        List<Match> matchList = matchDao.queryBuilder()
+                .where().eq("tournament_id", this.ongoingTournament.getId()).query();
+
+        OpenHelperManager.releaseHelper();
+
+        return matchList;
     }
 
     public List<Tournament> viewPastProfits() throws SQLException {
