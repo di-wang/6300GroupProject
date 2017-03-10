@@ -3,6 +3,7 @@ package edu.gatech.seclass.tourneymanager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -26,7 +27,6 @@ public class PlayerHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_home);
 
-        //TODO: if there is no ongoing tournament
         try {
             boolean ongoingTournament = checkOngoingTournament();
 

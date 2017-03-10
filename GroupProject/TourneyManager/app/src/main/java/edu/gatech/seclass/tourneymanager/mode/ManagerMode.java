@@ -23,32 +23,9 @@ import edu.gatech.seclass.tourneymanager.model.Player;
 import edu.gatech.seclass.tourneymanager.model.Tournament;
 import edu.gatech.seclass.tourneymanager.utils.TourneyCalcAlgorithm;
 
-public class ManagerMode {
-    Context context;
-    Tournament ongoingTournament;
-
+public class ManagerMode extends Mode {
     public ManagerMode(Context context) {
-       this.context = context;
-    }
-
-    public boolean thereIsOngoingTournament() throws SQLException {
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
-
-        List<Tournament> tournamentList = tournamentDao.queryBuilder()
-                .where().eq("status", Tournament.TournamentStatus.ONGOING).query();
-
-        OpenHelperManager.releaseHelper();
-
-        if (tournamentList.size() == 0) {
-            return false;
-        }
-        else {
-            // Save for other use in the class
-            ongoingTournament = tournamentList.get(0);
-
-            return true;
-        }
+        super(context);
     }
 
     public void addPlayerToSystem(String username, String name, String phoneNumber, Deck deck) {

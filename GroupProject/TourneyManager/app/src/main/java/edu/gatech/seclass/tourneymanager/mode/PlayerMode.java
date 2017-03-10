@@ -18,32 +18,9 @@ import edu.gatech.seclass.tourneymanager.model.Match;
 import edu.gatech.seclass.tourneymanager.model.Player;
 import edu.gatech.seclass.tourneymanager.model.Tournament;
 
-public class PlayerMode {
-    Context context;
-    Tournament ongoingTournament;
-
+public class PlayerMode extends Mode {
     public PlayerMode(Context context) {
-       this.context = context;
-    }
-
-    public boolean thereIsOngoingTournament() throws SQLException {
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
-
-        List<Tournament> tournamentList = tournamentDao.queryBuilder()
-                .where().eq("status", Tournament.TournamentStatus.ONGOING).query();
-
-        OpenHelperManager.releaseHelper();
-
-        if (tournamentList.size() == 0) {
-            return false;
-        }
-        else {
-            // Save for other use in the class
-            ongoingTournament = tournamentList.get(0);
-
-            return true;
-        }
+        super(context);
     }
 
     public List<Player> showAllPlayersTotalPrizes() throws SQLException  {
