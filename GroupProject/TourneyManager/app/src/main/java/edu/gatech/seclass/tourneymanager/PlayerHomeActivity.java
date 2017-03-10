@@ -1,6 +1,8 @@
 package edu.gatech.seclass.tourneymanager;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +21,7 @@ import edu.gatech.seclass.tourneymanager.adapter.PlayerAdapter;
 import edu.gatech.seclass.tourneymanager.mode.CurrentMode;
 import edu.gatech.seclass.tourneymanager.model.Match;
 import edu.gatech.seclass.tourneymanager.model.Player;
+import edu.gatech.seclass.tourneymanager.utils.ErrorHandler;
 
 public class PlayerHomeActivity extends AppCompatActivity {
 
@@ -37,7 +40,7 @@ public class PlayerHomeActivity extends AppCompatActivity {
                 whenNoOngoingTournament();
             }
         } catch (SQLException e) {
-            //TODO: handler error
+            ErrorHandler.SQLExceptionHandler(e, this);
         }
     }
 
