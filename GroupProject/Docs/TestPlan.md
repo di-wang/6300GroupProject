@@ -67,12 +67,12 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | Opens Management screen with 'Show Player List', 'View House Profits', 'Start a Tournament', and 'Add Player' | Pass | This screen will show unless someone has started a tournament on the device prior to testing
 2 | Click Start A Tournament | Opens Screen to input tournament information | Start Tournament screen is displayed | Pass |
-3 | Enter House Percentage | Illegal House cut typed into system | Integer value is entered into field  | Pass | Invalid values are 0 or 100
-4 | Click button Show Tournament Info | Invalid input message | Error is displayed  | Pass |
+3 | Enter House Percentage | Illegal House cut typed into system | Integer value is entered into field | Pass | Invalid values are 0 or 100
+4 | Click button Show Tournament Info | Invalid input message | Error is displayed | Pass |
 5 | Enter Entry Price | Illegal Price typed into system | Integer value is entered into field | Pass | Invalid value is 0
-6 | Click button Show Tournament Info | Invalid input message | Error is displayed  | Pass |
+6 | Click button Show Tournament Info | Invalid input message | Error is displayed | Pass |
 7 | Select Players | Illegal number of players selected | Players added to system | Pass | Invalid number of players are any combination not adding to 8 or 16
-8 | Click button Show Tournament Info | Invalid input message | Error is displayed  | Pass |
+8 | Click button Show Tournament Info | Invalid input message | Error is displayed | Pass |
 9 | Repeat for additional illegal values | Start tournament fails for all illegal values tested | All illegal values give errors | Pass | Illegal values all cause error messages
 
 **Test 3:** Tournament with no player input
@@ -85,10 +85,10 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | Opens Management screen with 'Show Player List', 'View House Profits', 'Start a Tournament', and 'Add Player' | Pass | This screen will show unless someone has started a tournament on the device prior to testing
 2 | Click Start A Tournament | Opens Screen to input tournament information | Start Tournament screen is displayed | Pass |
-3 | Enter House Percentage | House cut typed into system | Integer value is entered into field  | Pass | For testing 50 is appropriate
+3 | Enter House Percentage | House cut typed into system | Integer value is entered into field | Pass | For testing 50 is appropriate
 4 | Enter Entry Price | Price typed into system | Integer value is entered into field | Pass | For testing 10 is appropriate
 5 | Select Players | 8 players selected | Players added to system | Pass | 
-6 | Click button Show Tournament Info | Tournament info is displayed | Tournament prize values are displayed  | Pass |
+6 | Click button Show Tournament Info | Tournament info is displayed | Tournament prize values are displayed | Pass |
 7 | Click Start Tournament | Tournament begins | Tournament page is displayed | Pass |
 8 | Select a match | Match information opens | Manager has ability to Start match | Pass |
 9 | Click Start Match | Match starts | Match is set to ongoing | Pass |
@@ -108,14 +108,14 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
 1 | Click Manager | Opens Management Screen | Opens Management screen with 'Show Player List', 'View House Profits', 'Start a Tournament', and 'Add Player' | Pass | This screen will show unless someone has started a tournament on the device prior to testing
 2 | Click Start A Tournament | Opens Screen to input tournament information | Start Tournament screen is displayed | Pass |
-3 | Enter House Percentage | House cut typed into system | Integer value is entered into field  | Pass | For testing 50 is appropriate
+3 | Enter House Percentage | House cut typed into system | Integer value is entered into field | Pass | For testing 50 is appropriate
 4 | Enter Entry Price | Price typed into system | Integer value is entered into field | Pass | For testing 10 is appropriate
 5 | Select Players | 8 players selected | Players added to system | Pass | 
-6 | Click button Show Tournament Info | Tournament info is displayed | Tournament prize values are displayed  | Pass |
+6 | Click button Show Tournament Info | Tournament info is displayed | Tournament prize values are displayed | Pass |
 7 | Click Start Tournament | Tournament begins | Tournament page is displayed | Pass |
 8 | Close the application | Application is not running | Application is closed and not running on the system | Pass | 
 9 | Open Tournament Manager application | Application is running | Application is running on system with the Manager/Player select screen | Pass | 
-10 | Click Player | Opens ongoign tournament screen | List of Matches is displayed | Pass | 
+10 | Click Player | Opens ongoing tournament screen | List of Matches is displayed | Pass | 
 11 | Click Match | Player is able to see match information | Match information is viewable | Pass | Match information should all be viewable without being clicked
 
 **Test 5:** Manager view winnings
@@ -163,13 +163,13 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 9 | Verify values | Verify deleting did not affect results of other players | Values are all correctly displayed | Pass |
 
 
-### Additional Test Cases if schedule permits extra features
+### Follow on Test Cases for future builds
 
-**Test E1:** Players can add decks
+**Test FO1:** Players can add decks
 
 This tests validates that players can choose decks to use in a tournament.
 
-*PreReq:* Test 1 has been completed at least once.
+*PreReq:* Test 1 has been completed.
 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------
@@ -179,11 +179,11 @@ Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 4 | Select deck | Deck is added to players deck options in the database | | |
 4 | Verify deck change | Deck is changed | | |
 
-**Test E2:** Tournament works with all valid information
+**Test FO2:** Tournament works with all valid information
 
 This tests validates that the tournament will run with players and their own deck choices without fail.
 
-*PreReq:* Test 3 has been completed at least 8 times.
+*PreReq:* Test 3 has been completed.
 
 Steps | Action | Expected Result | Actual Result | Pass/Fail | Comments
 ----- | ------ | --------------- | ------------- | --------- | --------

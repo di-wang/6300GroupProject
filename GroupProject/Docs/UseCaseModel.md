@@ -54,7 +54,7 @@
 * Post-conditions: The match is marked as finished and the winner advances to the next round.
 * Scenarios: A tournament is ongoing; the manager selects a started match from the match list and marks its state as finished. The manager then input winner's username in the following match as found in the match list.
 
-#### View Matchlist
+#### View Match List
 * Requirements: When tournament is ongoing, the tournament manager mode will show a match list.
 * Pre-conditions： The tournament is ongoing. 
 * Post-conditions: A list of all matches is displayed. The manager can start/end a match ready to be played by selecting it from the list. 
@@ -79,7 +79,7 @@
 * Post-conditions: Manager mode is switched on. 
 * Scenarios: Start the application. The manager select his/her user type as Manager and input the login credentials. The manager mode will be switched on and display a list of functions. 
 
-#### View Matchlist
+#### View Match List
 * Requirements: When tournament is ongoing, the player mode will show a match list.
 * Pre-conditions： The tournament is ongoing. 
 * Post-conditions: A list of all matches is displayed.
