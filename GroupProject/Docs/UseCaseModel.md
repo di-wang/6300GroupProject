@@ -12,11 +12,11 @@
 ## 2 Use Case Descriptions
 
 ### Actor: Manager
-####Login
+####Select Mode
 * Requirements: The application allows manager to select manager mode. 
 * Pre-conditions: Application is started.
 * Post-conditions: Manager mode is switched on. 
-* Scenarios: Start the application. The manager select his/her user type as Manager and input the login credentials. The manager mode will be switched on and display a list of functions. 
+* Scenarios: Start the application. The manager selects his/her user type as Manager and input the login credentials. The manager mode will be switched on and display a list of functions. 
 
 #### Add Player
 * Requirements: The tournament manager uses the system to add players.
@@ -30,17 +30,18 @@
 * Post-conditions: The player is removed from the system. 
 * Scenarios: The manager input the username of the player to be removed from the system. The system will look up the username. If the username is found, the system will delete the found player from the system. If there is not player with that username found, the system will display an error and ask to try a different username.
 
-#### Run Tournament
-* Requirements: The tournament manager can start the tournament.
-* Pre-conditions: House cut/Entry price/All player names have to be inputted. There are either 8 or 16 players. There is no ongoing tournament.
-* Post-conditions: Tournament is ongoing.
-* Scenarios: After the tournament manager has inputted all required information and double checked the information. The tournament will start, the manager and player mode will show a match list. 
 
 #### Input Tournament Information
 * Requirements: The tournament manager will enter the house cut. The tournament manager will enter the entry price. The tournament manager will enter all player usernames. When the tournament manager has entered the above information, the system will display, in addition to the player names, the potential prizes and profit.
 * Pre-conditions: The format of input data is correct. There is no ongoing tournament. The number of player usernames is either 8 or 16. 
 * Post-conditions: The system will display the player names, the potential prizes and profit
 * Scenarios: The manager input all the required data, and the system will check if input in each field is valid and if the number of usernames is 8 or 16. If all input is valid, the system will utilize TourneyCalc app to generate and display potential prizes and profits. After the manager verifies the information, the manager will decide to start this tournament or try a different set of input. 
+
+#### Start Tournament
+* Requirements: The tournament manager can start the tournament.
+* Pre-conditions: House cut/Entry price/All player names have to be inputted and input has to be valid. There are either 8 or 16 players. There is no ongoing tournament.
+* Post-conditions: Tournament is ongoing.
+* Scenarios: After the tournament manager has inputted all required information, the system will run calculation algorithm and show tournament information. Manager will double check the information. If confirmed, the tournament will be started, the manager and player mode will show a match list. 
 
 #### Start Match
 * Requirements:  In an ongoing tournament, the tournament manager will be able to start a match ready to be played by selecting it from the match list. The system will then mark the game between the specified players as started.
@@ -64,7 +65,7 @@
 * Requirements: When there is no ongoing tournament, the tournament manager can view totals for every player in the system as a list sorted by total. From there, the manager can also view a list of the player’s individual prizes by selecting the player from the list.
 * Pre-conditions: There is no ongoing tournament. All tournament states are marked as completed.
 * Post-conditions: Display totals for every player in the system, sorted by total. The manager can also view a list of the player’s individual prizes by selecting the player from the list.
-* Scenarios: When there is no ongoing tournament, the tournament manager has an option to view totals for every player in the system as a list sorted by total. If clicking on a specific player, the system will display the player's individual prizes.
+* Scenarios: When there is no ongoing tournament, the tournament manager has an option to view totals for every player in the system as a list sorted by total. If the manager clicks on a specific player, the system will display the player's individual prizes.
 
 #### Display Profits
 * Requirements: When there is no ongoing tournament, the tournament manager can view the list of past house profits in chronological order and the total.
@@ -73,7 +74,7 @@
 * Scenarios: 
 
 ### Actor: Player
-#### Login
+#### Select Mode
 * Requirements: The application allows player to select player mode. 
 * Pre-conditions: Application is started.
 * Post-conditions: Manager mode is switched on. 
