@@ -2,6 +2,7 @@ package edu.gatech.seclass.tourneymanager.mode;
 
 
 import android.content.Context;
+import android.database.MatrixCursor;
 import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -9,6 +10,8 @@ import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.stmt.DeleteBuilder;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -118,6 +121,7 @@ public class ManagerMode {
         }
         else {
             RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
+            RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
             try {
                 Match finalMatch = matchDao.queryBuilder().where()
                         .eq("tournament_id", ongoingTournament.getId().toString()).and()
@@ -126,15 +130,13 @@ public class ManagerMode {
                         .eq("tournament_id", ongoingTournament.getId().toString()).and()
                         .eq("round", 3).query().get(0);
 
-                Player firstPlace = finalMatch.getWinner();
-                Player secondPlace = finalMatch.getLoser();
-                Player thirdPlace = thirdMatch.getWinner();
+                Player firstPlace = playerDao.queryForId(finalMatch.getWinner().getUsername());
+                Player secondPlace = playerDao.queryForId(finalMatch.getLoser().getUsername());
+                Player thirdPlace = playerDao.queryForId(thirdMatch.getWinner().getUsername());
 
                 this.ongoingTournament.endTournament(firstPlace, secondPlace, thirdPlace);
 
                 // Add prizes to players
-                RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
-
                 firstPlace.addTotalPrize(this.ongoingTournament.getFirstPrize());
                 secondPlace.addTotalPrize(this.ongoingTournament.getSecondPrize());
                 thirdPlace.addTotalPrize(this.ongoingTournament.getThirdPrize());
@@ -199,6 +201,48 @@ public class ManagerMode {
         OpenHelperManager.releaseHelper();
 
         return tournamentList;
+    }
+
+    public MatrixCursor viewPrizesOfPlayer(String username) throws SQLException {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+
+        String[] columns = {"_id", "end_date", "prize"};
+        MatrixCursor cursor = new MatrixCursor(columns);
+        Integer id = 1;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+
+        // Case where player is first place
+        List<Tournament> tournamentList = tournamentDao.queryBuilder()
+                .where().eq("firstWinner_id", username).query();
+        for (int i = 0; i < tournamentList.size(); i++) {
+            Tournament tournament = tournamentList.get(i);
+            cursor.addRow(new Object[] {id.toString(),
+                    df.format(tournament.getEndDate()), tournament.getFirstPrize()});
+            id++;
+        }
+
+        // Case where player is second place
+        tournamentList = tournamentDao.queryBuilder()
+                .where().eq("secondWinner_id", username).query();
+        for (int i = 0; i < tournamentList.size(); i++) {
+            Tournament tournament = tournamentList.get(i);
+            cursor.addRow(new Object[] {id.toString(),
+                    df.format(tournament.getEndDate()), tournament.getSecondPrize()});
+            id++;
+        }
+
+        // Case where player is third place
+        tournamentList = tournamentDao.queryBuilder()
+                .where().eq("thirdWinner_id", username).query();
+        for (int i = 0; i < tournamentList.size(); i++) {
+            Tournament tournament = tournamentList.get(i);
+            cursor.addRow(new Object[] {id.toString(),
+                    df.format(tournament.getEndDate()), tournament.getThirdPrize()});
+            id++;
+        }
+
+        return cursor;
     }
 
     private void initializeMatches(Tournament tournament, List<Player> playerList) {

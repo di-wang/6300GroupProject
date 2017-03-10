@@ -1,9 +1,11 @@
 package edu.gatech.seclass.tourneymanager;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -46,18 +48,22 @@ public class PlayerProfileActivity extends AppCompatActivity {
         ListView listview = (ListView) findViewById(R.id.player_prizes_list);
 
         String[] columns = {"_id", "name", "prize"};
-        MatrixCursor cursor = new MatrixCursor(columns);
-        cursor.addRow(new Object[] { "1", "Player1", "$100" });
-        cursor.addRow(new Object[] { "2", "Player2", "$200" });
-        cursor.addRow(new Object[] { "3", "Player3", "$300" });
 
-        String[] fromColumns = {"name", "prize"};
-        int[] toViews = {R.id.player_name_text_view, R.id.total_prize_text_view};
+        try {
+            Cursor cursor = CurrentMode.getManagerMode().viewPrizesOfPlayer(this.username);
 
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-                R.layout.player_list_row, cursor, fromColumns, toViews, 0);
+            String[] fromColumns = {"end_date", "prize"};
+            int[] toViews = {R.id.player_name_text_view, R.id.total_prize_text_view};
 
-        listview.setAdapter(adapter);
+            SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+                    R.layout.player_list_row, cursor, fromColumns, toViews, 0);
+
+            listview.setAdapter(adapter);
+        }
+        catch (SQLException e) {
+            //TODO: handle error
+            Log.e("Prizes", e.getStackTrace().toString());
+        }
     }
 
     public void removePlayerButtonClickHandler(View view) throws SQLException {
