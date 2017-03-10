@@ -76,7 +76,12 @@ public class ManagerHomeActivity extends AppCompatActivity {
     }
 
     public void endOngoingTournamentButtonClickHandler(View view) {
-        CurrentMode.getManagerMode().endOngoingTournament();
+        try {
+            CurrentMode.getManagerMode().endOngoingTournament();
+        }
+        catch (SQLException e){
+            ErrorHandler.SQLExceptionHandler(e, this);
+        }
 
         Intent intent = new Intent(this, ManagerHomeActivity.class);
         startActivity(intent);

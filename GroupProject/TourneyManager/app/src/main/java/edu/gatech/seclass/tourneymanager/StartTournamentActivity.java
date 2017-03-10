@@ -47,12 +47,14 @@ public class StartTournamentActivity extends OrmLiteBaseActivity<DatabaseHelper>
     }
 
     public void addPlayerButtonClickHandler(View view) {
-        addSelectedPlayer();
+        if (availablePlayers.size() > 0) {
+            addSelectedPlayer();
 
-        updateAvailablePlayers();
+            updateAvailablePlayers();
 
-        updatePlayerListTextView();
-        updatePlayerSpinner();
+            updatePlayerListTextView();
+            updatePlayerSpinner();
+        }
     }
 
     public void showTournamentInfoButtonClickHandler(View view) {

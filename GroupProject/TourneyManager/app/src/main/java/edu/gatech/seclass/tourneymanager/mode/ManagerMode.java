@@ -49,6 +49,60 @@ public class ManagerMode extends Mode {
         OpenHelperManager.releaseHelper();
     }
 
+    public List<Player> viewAllPlayersTotalPrizes() throws SQLException  {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
+
+        List<Player> playerList = playerDao.queryBuilder()
+                .orderBy("totalPrize", false).query();
+
+        OpenHelperManager.releaseHelper();
+
+        return playerList;
+    }
+
+    public MatrixCursor viewPrizesOfPlayer(String username) throws SQLException {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+
+        String[] columns = {"_id", "end_date", "prize"};
+        MatrixCursor cursor = new MatrixCursor(columns);
+        Integer id = 1;
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+
+        // Case where player is first place
+        List<Tournament> tournamentList = tournamentDao.queryBuilder()
+                .where().eq("firstWinner_id", username).query();
+        for (int i = 0; i < tournamentList.size(); i++) {
+            Tournament tournament = tournamentList.get(i);
+            cursor.addRow(new Object[] {id.toString(),
+                    df.format(tournament.getEndDate()), tournament.getFirstPrize()});
+            id++;
+        }
+
+        // Case where player is second place
+        tournamentList = tournamentDao.queryBuilder()
+                .where().eq("secondWinner_id", username).query();
+        for (int i = 0; i < tournamentList.size(); i++) {
+            Tournament tournament = tournamentList.get(i);
+            cursor.addRow(new Object[] {id.toString(),
+                    df.format(tournament.getEndDate()), tournament.getSecondPrize()});
+            id++;
+        }
+
+        // Case where player is third place
+        tournamentList = tournamentDao.queryBuilder()
+                .where().eq("thirdWinner_id", username).query();
+        for (int i = 0; i < tournamentList.size(); i++) {
+            Tournament tournament = tournamentList.get(i);
+            cursor.addRow(new Object[] {id.toString(),
+                    df.format(tournament.getEndDate()), tournament.getThirdPrize()});
+            id++;
+        }
+
+        return cursor;
+    }
+
     public Map<String, Integer> showTournamentInfo(int entranceFee, int numEntrants, int housePercentage) {
         // Use hashmap instead of array for easier reference
         Map<String, Integer> tournamentInfo = new HashMap<String, Integer>();
@@ -65,24 +119,7 @@ public class ManagerMode extends Mode {
         return tournamentInfo;
     }
 
-    public String getOngoingTournamentCurrentRound() {
-        return this.ongoingTournament.getCurrentRoundInString();
-    }
-
-    public List<Player> viewAllPlayersTotalPrizes() throws SQLException  {
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
-
-        List<Player> playerList = playerDao.queryBuilder()
-                .orderBy("totalPrize", false).query();
-
-        OpenHelperManager.releaseHelper();
-
-        return playerList;
-    }
-
     public void createAndStartTournament(Map<String, Integer> tournamentInfo, List<Player> playerList) {
-        //TODO: change usernames to be stored as many to many relationship instead of string
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
 
@@ -97,7 +134,7 @@ public class ManagerMode extends Mode {
         initializeMatches(tournament, playerList);
     }
 
-    public void endOngoingTournament() {
+    public void endOngoingTournament() throws SQLException {
         if (this.ongoingTournament == null) {
             throw new IllegalStateException("There is no ongoing tournament.");
         }
@@ -105,44 +142,55 @@ public class ManagerMode extends Mode {
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
 
-        //TODO: check if tournament has ended prematurely and money needs to be refunded
         if (this.ongoingTournament.didEndedPrematurely()) {
             this.ongoingTournament.endTournamentPrematurely();
         }
         else {
             RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
             RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
-            try {
-                Match finalMatch = matchDao.queryBuilder().where()
-                        .eq("tournament_id", ongoingTournament.getId().toString()).and()
-                        .eq("round", 2).query().get(0);
-                Match thirdMatch = matchDao.queryBuilder().where()
-                        .eq("tournament_id", ongoingTournament.getId().toString()).and()
-                        .eq("round", 3).query().get(0);
 
-                Player firstPlace = playerDao.queryForId(finalMatch.getWinner().getUsername());
-                Player secondPlace = playerDao.queryForId(finalMatch.getLoser().getUsername());
-                Player thirdPlace = playerDao.queryForId(thirdMatch.getWinner().getUsername());
+            Match finalMatch = matchDao.queryBuilder().where()
+                    .eq("tournament_id", ongoingTournament.getId().toString()).and()
+                    .eq("round", 2).query().get(0);
+            Match thirdMatch = matchDao.queryBuilder().where()
+                    .eq("tournament_id", ongoingTournament.getId().toString()).and()
+                    .eq("round", 3).query().get(0);
 
-                this.ongoingTournament.endTournament(firstPlace, secondPlace, thirdPlace);
+            Player firstPlace = playerDao.queryForId(finalMatch.getWinner().getUsername());
+            Player secondPlace = playerDao.queryForId(finalMatch.getLoser().getUsername());
+            Player thirdPlace = playerDao.queryForId(thirdMatch.getWinner().getUsername());
 
-                // Add prizes to players
-                firstPlace.addTotalPrize(this.ongoingTournament.getFirstPrize());
-                secondPlace.addTotalPrize(this.ongoingTournament.getSecondPrize());
-                thirdPlace.addTotalPrize(this.ongoingTournament.getThirdPrize());
+            this.ongoingTournament.endTournament(firstPlace, secondPlace, thirdPlace);
 
-                playerDao.update(firstPlace);
-                playerDao.update(secondPlace);
-                playerDao.update(thirdPlace);
-            }
-            catch (SQLException e) {
-                //TODO: handle error
-                Log.e("End tournament", e.getStackTrace().toString());
-            }
+            // Add prizes to players
+            firstPlace.addTotalPrize(this.ongoingTournament.getFirstPrize());
+            secondPlace.addTotalPrize(this.ongoingTournament.getSecondPrize());
+            thirdPlace.addTotalPrize(this.ongoingTournament.getThirdPrize());
+
+            playerDao.update(firstPlace);
+            playerDao.update(secondPlace);
+            playerDao.update(thirdPlace);
+
         }
         tournamentDao.update(this.ongoingTournament);
 
         OpenHelperManager.releaseHelper();
+    }
+
+    public String getOngoingTournamentCurrentRound() {
+        return this.ongoingTournament.getCurrentRoundInString();
+    }
+
+    public List<Tournament> viewPastProfits() throws SQLException {
+        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
+        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
+
+        List<Tournament> tournamentList = tournamentDao.queryBuilder()
+                .where().eq("status", Tournament.TournamentStatus.COMPLETE).query();
+
+        OpenHelperManager.releaseHelper();
+
+        return tournamentList;
     }
 
     public void startMatch(Match match) {
@@ -200,60 +248,6 @@ public class ManagerMode extends Mode {
         return matchList;
     }
 
-    public List<Tournament> viewPastProfits() throws SQLException {
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
-
-        List<Tournament> tournamentList = tournamentDao.queryBuilder()
-                .where().eq("status", Tournament.TournamentStatus.COMPLETE).query();
-
-        OpenHelperManager.releaseHelper();
-
-        return tournamentList;
-    }
-
-    public MatrixCursor viewPrizesOfPlayer(String username) throws SQLException {
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
-
-        String[] columns = {"_id", "end_date", "prize"};
-        MatrixCursor cursor = new MatrixCursor(columns);
-        Integer id = 1;
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-
-        // Case where player is first place
-        List<Tournament> tournamentList = tournamentDao.queryBuilder()
-                .where().eq("firstWinner_id", username).query();
-        for (int i = 0; i < tournamentList.size(); i++) {
-            Tournament tournament = tournamentList.get(i);
-            cursor.addRow(new Object[] {id.toString(),
-                    df.format(tournament.getEndDate()), tournament.getFirstPrize()});
-            id++;
-        }
-
-        // Case where player is second place
-        tournamentList = tournamentDao.queryBuilder()
-                .where().eq("secondWinner_id", username).query();
-        for (int i = 0; i < tournamentList.size(); i++) {
-            Tournament tournament = tournamentList.get(i);
-            cursor.addRow(new Object[] {id.toString(),
-                    df.format(tournament.getEndDate()), tournament.getSecondPrize()});
-            id++;
-        }
-
-        // Case where player is third place
-        tournamentList = tournamentDao.queryBuilder()
-                .where().eq("thirdWinner_id", username).query();
-        for (int i = 0; i < tournamentList.size(); i++) {
-            Tournament tournament = tournamentList.get(i);
-            cursor.addRow(new Object[] {id.toString(),
-                    df.format(tournament.getEndDate()), tournament.getThirdPrize()});
-            id++;
-        }
-
-        return cursor;
-    }
-
     private void initializeMatches(Tournament tournament, List<Player> playerList) {
         DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
         RuntimeExceptionDao<Match, Integer> matchDao= dbHelper.getMatchRuntimeExceptionDao();
@@ -298,42 +292,5 @@ public class ManagerMode extends Mode {
         tournamentDao.update(ongoingTournament);
 
         OpenHelperManager.releaseHelper();
-    }
-    
-    /*
- //Di added these methods for use
-    public Map<Integer, Integer> showHouseProfit() throws SQLException{
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Tournament, Integer> tournamentDao= dbHelper.getTournamentRuntimeExceptionDao();
-
-        List<Tournament> tournamentList = tournamentDao.queryBuilder()
-                .where().eq("status", Tournament.TournamentStatus.COMPLETE).query();
-        OpenHelperManager.releaseHelper();
-
-        Map<Integer, Integer> houseProfit = new HashMap<Integer, Integer>();
-
-        int n = tournamentList.size();
-        //Query all complete tournaments, put the tournament ID and tournament profits in hashmap
-        for (int i=0; i<n; i++){
-            houseProfit.put(tournamentList.get(i).getId(),tournamentList.get(i).getTotalProfit());
-        }
-        return houseProfit;
-    } */
-
-    public Map<String, Integer> showPlayerTotalPrize() throws SQLException{
-        DatabaseHelper dbHelper = OpenHelperManager.getHelper(context, DatabaseHelper.class);
-        RuntimeExceptionDao<Player, String> playerDao= dbHelper.getPlayerRuntimeExceptionDao();
-
-        List<Player> playerList = playerDao.queryForAll();
-        OpenHelperManager.releaseHelper();
-
-        Map<String, Integer> playerTotalPrize = new HashMap<String, Integer>();
-
-        int n = playerList.size();
-        //Query all players, put the player username and player total prize in hashmap
-        for (int i=0; i<n; i++){
-            playerTotalPrize.put(playerList.get(i).getUsername(),playerList.get(i).getTotalPrize());
-        }
-        return playerTotalPrize;
     }
 }

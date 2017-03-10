@@ -15,6 +15,7 @@ import edu.gatech.seclass.tourneymanager.adapter.TournamentAdapter;
 import edu.gatech.seclass.tourneymanager.mode.CurrentMode;
 import edu.gatech.seclass.tourneymanager.model.Match;
 import edu.gatech.seclass.tourneymanager.model.Tournament;
+import edu.gatech.seclass.tourneymanager.utils.ErrorHandler;
 
 public class ViewPastProfitActivity extends AppCompatActivity {
 
@@ -30,8 +31,7 @@ public class ViewPastProfitActivity extends AppCompatActivity {
             showTotalProfit(tournamentList);
         }
         catch (SQLException e) {
-            //TODO: error handling
-            Log.e("View Past Profit", e.getStackTrace().toString());
+            ErrorHandler.SQLExceptionHandler(e, this);
         }
     }
 
